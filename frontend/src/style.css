@@ -28,7 +28,7 @@ main {
 }
 .logo {
   float: left;
-  padding: 48px;
+  padding: 40px;
   margin: 0 auto;
   width: 30%;
 }
@@ -41,7 +41,7 @@ main {
 }
 .cadastro-login ul li {
   margin-left: 10px;
-  display: flex;
+  /* display: flex; */
   float: left;
   list-style: none;
 }
@@ -57,6 +57,7 @@ a {
   margin: 0 auto;
   float: right;
 }
+
 .header-2 {
   background-color: #57A066;
   width: 100%;
@@ -89,7 +90,9 @@ a {
   background-image: url('./assets/images/busca.png');
   background-repeat: no-repeat;
   background-position: 95%;
-  border-bottom: none;  
+  border-bottom: none;
+  font-size: 14px;
+  margin-left: -20px;  
 }
 li input .busca {
   padding: 15px;
