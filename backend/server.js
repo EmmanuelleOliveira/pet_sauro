@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+const {getClient} = require('./utils/client_pg');
 const routerClients = require('./resources/clients.js');
 const routerPets = require('./resources/pets.js');
 const routerSales = require('./resources/sales.js');
@@ -22,14 +23,19 @@ app.use('/users', routerUsers);
 
 app.post('/loginclients', async (req,res) => {
     const {email, password} = req.body;
-    const client = await getClient(); 
-    const users = await client.query('SELECT * FROM public.clients WHERE email=$1 AND password=$2 RETURNING*', [email, password]);
+    console.log(email, password)
+    const client = await getClient();
+    console.log("chegou aqui")
+    const users = await client.query('SELECT * FROM public.clients WHERE email=$1 AND password=$2', [email, password]);
+    console.log("chegou aqui 2")
     await client.end();
+    console.log("chegou aqui 3")
     if(users.rows.lenght === 0) {
         res.status(400).send("Cliente não cadastrado");
     } else {
         const token = await jwt.sign({clientId: users.rows[0].id, clientEmail: users.rows[0].email},tokenPassword);
-        res.cookie("token", token); 
+        console.log(token)
+        res.cookie("token", token); //como se fosse uma propriedade do objeto passa o nome e o valor
         res.json({});
     }
 });
@@ -37,13 +43,13 @@ app.post('/loginclients', async (req,res) => {
 app.post('/loginusers', async (req,res) => {
     const {username, password} = req.body;
     const client = await getClient(); 
-    const users = await client.query('SELECT * FROM public.users WHERE username=$1 AND password=$2 RETURNING*', [username, password]);
+    const users = await client.query('SELECT * FROM public.users WHERE username=$1 AND password=$2', [username, password]);
     await client.end();
     if(users.rows.lenght === 0) {
         res.status(400).send("Usuário não cadastrado");
     } else {
         const token = await jwt.sign({userId: users.rows[0].id, username: users.rows[0].username},tokenPassword);
-        res.cookie("token", token); 
+        res.cookie("token", token); //como se fosse uma propriedade do objeto passa o nome e o valor
         res.json({});
     }
 });

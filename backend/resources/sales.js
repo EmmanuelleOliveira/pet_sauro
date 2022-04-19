@@ -1,11 +1,11 @@
 const express = require('express');
 const {getClient} = require('../utils/client_pg');
-const authorization = require('../middlewares/authorizacion_client.js');
+const authorization = require('../middlewares/authorization_client');
 const router = express.Router();
 //http://localhost:3000
 router.get('/', authorization, async (req, res) => {
     const client = await getClient();
-    const users = await client.query('SELECT * FROM public.sales AS s LEFT JOIN public.debts AS d ON s.id = d.sale_id');
+    const users = await client.query('SELECT s.id AS id_vendas, s.value AS valor, s.client_id AS id_cliente, d.value AS valor_parcela, d.status AS situacao, d.due_date AS data_vencimento, d.payment_type_id AS forma_pagamento, i.price AS preco_item, i.quantity AS quantidade_itens, i.pet_id AS id_pet FROM public.sales AS s INNER JOIN public.debts AS d ON s.id = d.sale_id INNER JOIN public.itens AS i ON s.id=i.sale_id');
     await client.end();
     res.json(users.rows); 
 });
@@ -50,12 +50,12 @@ router.post('/', authorization, async (req, res) => {
     }
 });
 
-router.put('/:id', authorization, async (req, res) => {
+/* router.put('/:id', authorization, async (req, res) => {
 
 });
 
 router.delete('/:id', authorization, async (req, res) => {
 
-});
+}); */
 
 module.exports = router;

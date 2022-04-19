@@ -1,6 +1,6 @@
 const express = require('express');
 const {getClient} = require('../utils/client_pg');
-const authorization = require('../middlewares/authorizacion_users.js');
+const authorization = require('../middlewares/authorization_users.js');
 const router = express.Router();
 //http://localhost:3333
 router.get('/', authorization, async (req, res) => {
