@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;  
+}
+
+@font-face {
+    font-family: roboto;
+    src: url(../src/assets/fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: african;
+    src: url(../src/assets/fonts/african.ttf);
+}
+
+@font-face {
+    font-family: africanwoff;
+    src: url(../src/assets/fonts/african.otf);
+}
+
+#header-user {
+    width: 100vw;
+    background-color: #E76B69;
+    height: 200px;
+}
+
+h1 {
+    font-family: african;
+    color: #F0E349;
+    font-size: 100px;
+}
