@@ -21,6 +21,7 @@ app.use('/pets', routerPets);
 app.use('/sales', routerSales);
 app.use('/users', routerUsers);
 
+///-----Verificar existencia de TOKEN----\\\
 app.post('/loginclients', async (req,res) => {
     const {email, password} = req.body;
     console.log(email, password)
