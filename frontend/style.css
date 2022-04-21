@@ -178,9 +178,9 @@ body {
   font-size: 18px;
 }
 
-.spa-page-container {
+/* .spa-page-container {
   display: none;
-}
+} */
 
 .nav {
   position: fixed;
@@ -297,9 +297,9 @@ h4 {
   margin-left: 40px;
   width: 50%;
 }
-
+/* 
 form {
-  /* position: absolute; */
+  
   justify-content: center;
   background-color: #57A066;
   height: 400px;
@@ -309,9 +309,9 @@ form {
   margin-right: 200px;
   float: right;
   margin-top: -150px;
-}
-#cadastro-pets {
-  /* justify-content: center; */
+} */
+/* #cadastro-pets {
+  
   align-items: center;
   background-color: #57A066;
   height: 400px;
@@ -322,8 +322,8 @@ form {
   margin-top: 10px;
   display: inline;
   
-}
-#cadastro-pets input {
+} */
+/* #cadastro-pets input {
   border-radius: 20px;
   border: none;
   width: 85%;
@@ -331,7 +331,7 @@ form {
   margin-bottom: 10px;
   height: 10%;
   
-}
+} */
 #cadastrar input {
   border-radius: 20px;
   border: none;
