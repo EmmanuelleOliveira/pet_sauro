@@ -3,11 +3,11 @@ let page = null;
 const onPageLoad = {};
 
 function navigate(url) {
-  const fragments = url.split("/"); // ["", "produtos", ":0"]
+  const fragments = url.split("/"); 
   const params = [];
   const output = fragments.map((x) => {
     if (x[0] === ":") {
-      params.push(x.slice(1)); // ":220" => "220"
+      params.push(x.slice(1)); 
       return "$";
     } else {
       return x;
@@ -49,7 +49,7 @@ const header = `
                     </a>
                 </li>
                 <li>
-                    <span>Olá, </span><span id="cadastro"><a href="/cadastro" class="nav__link" data-link>Fulano</a></span>
+                    <span>Olá, </span><span id="cadastro"><a href="/cadastro" class="nav__link" data-link>cadastrar</a></span>
                     <span id="sair">| <a href="http://www.google.com/search"><span id="cadastro">Sair</span></a></span><br/>
                     <p><span id="acompanhar"><a href="/acompanhar">Pedido</a></span></p>
                 </li>

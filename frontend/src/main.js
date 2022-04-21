@@ -16,12 +16,12 @@ setInterval(carrossel, 1900);
 
 
 //----- FILTRO -------//
-function filterPets() {
-    console.log("Filtro")
-    let esconderFiltro = document.getElementById("esconder-filtro");
-    let verFiltro = document.getElementById("ver-filtro");
-    let btnFiltro = document.getElementById("filtro-btn");
+const esconderFiltro = document.getElementById("esconder-filtro");
+const verFiltro = document.getElementById("ver-filtro");
+const btnFiltro = document.getElementById("filtro-btn");
 
+function filterCarnivoro() {
+    console.log("Filtro")
     if(esconderFiltro.style.display === "none") {
         esconderFiltro.style.display = "inline";
         verFiltro.style.display = "none";
@@ -33,3 +33,39 @@ function filterPets() {
     }
 }
 
+function filterHerbivoro() {
+    
+    if(esconderFiltro.style.display === "none") {
+        esconderFiltro.style.display = "inline";
+        verFiltro.style.display = "none";
+        btnFiltro.innerHTML = "Ver Filtro";
+    } else {
+        esconderFiltro.style.display = "none";
+        verFiltro.style.display = "inline";
+        btnFiltro.innerHTML = "Esconder Filtro"
+    }
+}
+function filterOnivoro() {
+    
+    if(esconderFiltro.style.display === "none") {
+        esconderFiltro.style.display = "inline";
+        verFiltro.style.display = "none";
+        btnFiltro.innerHTML = "Ver Filtro";
+    } else {
+        esconderFiltro.style.display = "none";
+        verFiltro.style.display = "inline";
+        btnFiltro.innerHTML = "Esconder Filtro"
+    }
+}
+function filterPromocao() {
+   
+    if(esconderFiltro.style.display === "none") {
+        esconderFiltro.style.display = "inline";
+        verFiltro.style.display = "none";
+        btnFiltro.innerHTML = "Ver Filtro";
+    } else {
+        esconderFiltro.style.display = "none";
+        verFiltro.style.display = "inline";
+        btnFiltro.innerHTML = "Esconder Filtro"
+    }
+}

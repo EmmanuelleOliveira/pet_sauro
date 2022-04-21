@@ -162,12 +162,14 @@ p {
 }
 footer {
   background-color: #E76B69;
-  /* margin-top: 10px; */
+  
   margin: 0px;
   height: 30px;
   font-style: italic; 
 }
-
+.copyright-2022-pet-s {
+  margin-top: 65vh;
+}
 
 /* ----- SPA -----*/
 body {
@@ -308,14 +310,38 @@ form {
   float: right;
   margin-top: -150px;
 }
-
-#cadastrar input {
+#cadastro-pets {
+  /* justify-content: center; */
+  align-items: center;
+  background-color: #57A066;
+  height: 400px;
+  width: 600px;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: 30vw;
+  margin-top: 10px;
+  display: inline;
+  
+}
+#cadastro-pets input {
   border-radius: 20px;
   border: none;
   width: 85%;
   margin-top: 10px;
   margin-bottom: 10px;
   height: 10%;
+  
+}
+#cadastrar input {
+  border-radius: 20px;
+  border: none;
+  /* width: 30%; */
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 6vh;
+  /* margin-left: auto; */
+  margin-right: auto;
 }
 
 #btn-cadastrar {
