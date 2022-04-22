@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css"/>
+    <title>PetSauro</title>
+  </head>
+  <body>
+    <header class="menu-principal">
+      <main>
+        <div class="header-1">
+          <div class="logo">
+            <a href="">
+              <img
+                src="./assets/images/logo.png"
+                width="65px"
+                height="65px"
+                alt=""
+              />
+            </a>
+          </div>
+          <img
+            id="logo-name"
+            src="./assets/images/petsauro80 1.png"
+            width="50px"
+            height="50px"
+            alt=""
+          />
+          <div class="cadastro-login">
+            <ul>
+              <li>
+                <a href="/cadastro" class="nav__link" data-link>
+                  <img src="./assets/images/pessoa.png" />
+                </a>
+              </li>
+              <li>
+                <span>Olá, </span
+                ><span id="nome-cadastro"
+                  ><a href="/login" class="nav__link" data-link ></a>usuário
+                </span>
+                <span id="sair"
+                  >|
+                  <a href="http://www.google.com/search"
+                    ><span id="cadastro">Sair</span></a
+                  ></span
+                ><br />
+                <p>
+                  <span id="acompanhar"><a href="/acompanhar">Pedido</a></span>
+                </p>
+              </li>
+              <li>
+                <a href="/carrinho" class="nav__link" data-link>
+                  <img src="./assets/images/carrinho.png" />
+                </a>
+                <a href="/pedido" class="nav__link" data-link>
+                  <span id="pedido">0</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </main>
+    </header>
+
+    <main class="col-100 menu-urls">
+      <div class="header-2">
+        <div class="menu">
+          <nav>
+            <ul>
+              <li>
+                <a href="/inicial" class="nav__link" data-link>Página Inicial</a>
+              </li>
+              <li>
+                <a href="/carnivoro" class="nav__link" data-link>Carnívoro</a>
+              </li>
+              <li>
+                <a href="/herbivoro" class="nav__link" data-link>Herbívoro</a>
+              </li>
+              <li>
+                <a href="/onivoro" class="nav__link" data-link>Onívoro</a>
+              </li>
+              <li>
+                <a href="/promocao" class="nav__link" data-link>Promoções</a>
+              </li>
+              <li>
+                <a href="/cadastro_pets" class="nav__link" data-link>Cadastrar Pet</a>
+              </li>
+              <li>
+                <input class="busca" placeholder="Pesquisar" type="text" />
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+
+    <div id="spa-page-container">
+        
+    </div>
+    
+    <footer>
+        Copyright© 2022 PetSauro - Todos os direitos reservados
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="spa-biblioteca.js"></script>
+    <!-- <script src="loja.js"></script> -->
+    <!-- <script type="text/javascript" src="main.js"></script> -->
+  </body>
+</html>

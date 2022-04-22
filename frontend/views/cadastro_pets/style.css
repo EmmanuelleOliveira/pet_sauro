@@ -1,0 +1,31 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;  
+}
+
+@font-face {
+    font-family: roboto;
+    src: url(../src/assets/fonts/Roboto-Regular.ttf);
+}
+
+#header-user {
+    width: 100vw;
+    background-color: #E76B69;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo {
+    width: 260px;
+    height: 30px;
+    min-width: 250px;
+    display: flex;
+}     */
+
+#cadastro-pets form {
+    background-color: red;
+}

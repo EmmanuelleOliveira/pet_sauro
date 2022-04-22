@@ -9,7 +9,7 @@
 </head>
   <body>
     <header class="menu-principal">
-        <main>
+        <!-- <main>
             <div class="header-1">
                 <div class="logo">
                   <a href="">
@@ -25,7 +25,7 @@
                             </a>
                         </li>
                         <li>
-                            <span>Olá, </span><span id="cadastro"><a href="/cadastro" class="nav__link" data-link>Fulano</a></span>
+                            <span>Olá, </span><span id="cadastro"><a href="/cadastro" class="nav__link" data-link></a></span>
                             <span id="sair">| <a href="http://www.google.com/search"><span id="cadastro">Sair</span></a></span><br/>
                             <p><span id="acompanhar"><a href="/acompanhar">Pedido</a></span></p>
                         </li>
@@ -40,7 +40,7 @@
                     </ul>
                 </div>
             </div>
-        </main>
+        </main> -->
     </header>
     
   <main class="col-100 menu-urls">
@@ -126,7 +126,7 @@
     <div class="filtro-container">
       <div class="filtro">
         <div class="btn-filtro">
-          <button onclick="filterPets()" id="filtro-btn">Ver Filtro</button>
+          <button onclick="filterCarnivoro()" id="filtro-btn">Ver Filtro</button>
         </div>
         <div id="esconder-filtro" id="ver-filtro">
           <div class="filtro-valor valor">
@@ -166,21 +166,24 @@
       </div>
     </div>
     
-      <div class="dino-filtro col-md-4">
-
-        <div class="pets-pages" id="carnivoro">
-          <img id="img-pet-carnivoro"src="./assets/images/rex-filhote.jpg" alt=""/>
-          <p class="name-carnivoro">TIRANOSSAURO REX</p>
-          <p>Tipo: <span class="tipo-carnivoro">Carnívoro</span></p>
-          <p>Altura Máxima: <span class="altura-carnivoro">7m</span></p>
-          <p>Peso Máximo: <span class="peso-carnivoro">10t</span></p>
+      <a href="/selecionado" class="nav__link" data-link>
+        <div class="dino-filtro col-md-4">        
+          <div class="pets-pages" id="carnivoro">
+            <img id="img-pet-carnivoro"src="./assets/images/rex-filhote.jpg" alt=""/>
+            <p class="name-carnivoro">TIRANOSSAURO REX</p>
+            <p>Tipo: <span class="tipo-carnivoro">Carnívoro</span></p>
+            <p>Altura Máxima: <span class="altura-carnivoro">7m</span></p>
+            <p>Peso Máximo: <span class="peso-carnivoro">10t</span></p>
+          </div>
         </div>
-
-      </div>
+      </a>
 
     <ul id="produtos__lista"></ul>
   </div>
   <!---------------------------------->
+  <div class="spa-page-container" data-page="/selecionado">
+    <p>selecionado</p>
+  </div>
 
   <!-- ---- SPA PAGINA HERBIVORO ---- -->
   <div class="spa-page-container" data-page="/herbivoro">
@@ -190,7 +193,7 @@
         <div class="filtro-container">
           <div class="filtro">
             <div class="btn-filtro">
-              <button onclick="filterPets()" id="filtro-btn">Ver Filtro</button>
+              <button onclick="filterHerbivoro()" id="filtro-btn">Ver Filtro</button>
             </div>
             <div id="esconder-filtro" id="ver-filtro">
               <div class="filtro-valor valor">
@@ -254,7 +257,7 @@
         <div class="filtro-container">
           <div class="filtro">
             <div class="btn-filtro">
-              <button onclick="filterPets()" id="filtro-btn">Ver Filtro</button>
+              <button onclick="filterOnivoro()" id="filtro-btn">Ver Filtro</button>
             </div>
             <div id="esconder-filtro" id="ver-filtro">
               <div class="filtro-valor valor">
@@ -318,7 +321,7 @@
         <div class="filtro-container">
           <div class="filtro">
             <div class="btn-filtro">
-              <button onclick="filterPets()" id="filtro-btn">Ver Filtro</button>
+              <button onclick="filterPromocao()" id="filtro-btn">Ver Filtro</button>
             </div>
             <div id="esconder-filtro" id="ver-filtro">
               <div class="filtro-valor valor">
@@ -351,8 +354,7 @@
     <ul id="produtos__lista"></ul>
   </div>
 
-<!-- ------ PAGINA CADASTRO/LOGIN ------- -->
-  
+<!-- ------ PAGINA CADASTRO USUÁRIO ------- -->  
 
   <div class="spa-page-container" data-page="/cadastro">
     <h4><a href="/" class="nav__link" data-link>Página Inicial</a><span>> Cadastro</span></h4>
@@ -368,16 +370,69 @@
             <input></input><br />
             <label>Senha</label><br />
             <input></input> 
-          <button type="button" id="btn-cadastrar">Criar meu Cadastro</button>
-          <p>Já possui cadastro ? <span><b>Entrar</b></span></p>
+          <button id="btn-cadastrar"><a href="/usuario-cadastrado" class="nav__link" data-link>Cadastrar</a></button>
+          
+         
         </form>
+        <!-- <p>Já possui cadastro ? <span><a href="/login" class="nav__link" data-link><b>Entrar</b></span></a></p> -->
       </div>
-
+      
       <div id="texto-cadastro">
         <p>Vem encontrar seu melhor amigo aqui!</p>
         <p>No <b>PETSAURO</b> existe uma variedade de dinossauros esperando por você.</p>
         <p>Cadastre-se e confira!!</p>
       </div>      
+    </div> 
+  </div>
+
+  <!-- ------ PAGINA LOGIN ------- -->  
+
+  <div class="spa-page-container" data-page="/login">
+    <h4><a href="/" class="nav__link" data-link>Página Inicial</a><span>> Login</span></h4>
+    <div id="preecher-cadastro">
+
+      <div id="cadastrar">
+        <form method="">
+            
+            <input></input><br />
+            <label>Email</label><br />
+            <input></input><br />
+            <label>Senha</label><br />
+            <input></input> 
+          <button id="btn-cadastrar">Login</button>
+          
+        </form>
+        <!-- <p>Já possui cadastro ? <span><a href="/login" class="nav__link" data-link><b>Entrar</b></span></a></p> -->
+      </div>
+      
+      <div id="texto-cadastro">
+        <p>Vem encontrar seu melhor amigo aqui!</p>
+        <p>No <b>PETSAURO</b> existe uma variedade de dinossauros esperando por você.</p>
+        <p>Cadastre-se e confira!!</p>
+      </div>      
+    </div> 
+  </div>
+
+<!-- ///-----USUÁRIO CADASTRADO-----\\\ -->
+  <div class="spa-page-container" data-page="/usuario-cadastrado">
+    <h4><a href="/" class="nav__link" data-link>Página Inicial</a><span>> Logado</span></h4>
+    <div id="preecher-cadastro">
+      <p>Usuário cadastrado com sucesso</p>
+      <p><a href="/" class="nav__link" data-link>Voltar a página Inicial</a></p>
+
+      <!-- <div id="cadastrar">
+        <form id="cadastro-pets" method="">
+            Nome<input type="text"></input> 
+            Categoria<input type="text"></input><br />
+            Peso<input type="text"></input>
+            Altura<input type="text"></input><br />
+            Preço<input type="text"></input>
+            Promoção<input type="radio">Sim</input><input type="radio">Não</input><br />
+            Imagem<input type="text"></input>
+            Descrição<input type="text"></input> 
+          <button type="" id="btn-cadastrar">Cadastrar Pet</button>
+        </form>
+      </div> -->
     </div> 
   </div>
 
