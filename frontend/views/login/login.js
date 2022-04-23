@@ -1,4 +1,4 @@
-const url = "http://localhost:3001"
+const url = "http://localhost:2000"
 
 ///-----VISIBILIDADE DA SENHA----\\\
 console.log("Login.js");
@@ -16,19 +16,23 @@ console.log();
 /////------VALIDANDO LOGIN-------\\\\\\
 
 function login() {
-  const email = document.getElementById("email");
-  const password = document.getElementById("password");
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
   //-----Validação-----\\
   fetch(`${url}/loginclients`, {
       method: "POST",
       headers: {
-          "Content-Type": "application/json",
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': "http://localhost:8080",
+        'Access-Control-Allow-Credentials': true
       },
-      body: JSON.stringify ({
+      credentials: "include",
+      body: JSON.stringify({
         email: email,
         password: password
-      })
+      }) 
   })
     .then(function (response) {
         console.log("Chegou aqui primeiro then")
