@@ -1,3 +1,31 @@
+declareController(class {
+  onLoad() {
+      console.log("entrando na página Inicial")
+  }
+
+  onDestroy() {
+      console.log("saindo da página inicial")
+  }
+
+   carrosselPageInit(event) {
+         event.preventDefault();
+         ///----CARROSSEL ----//
+
+     let imagesCarrossel = document.getElementById("img-carrossel");
+      let imgCarrossel = document.querySelectorAll("#img-carrossel img");
+
+      let idInit = 0;
+         function carrossel() {
+            idInit++;
+            if(idInit > imgCarrossel.length - 1) {
+               idInit = 0;
+            }
+            imagesCarrossel.style.transform = `translateX(${-idInit * 1130}px)`;
+         }
+      setInterval(carrossel, 1900);
+   }
+})
+
 let page = null;
 
 console.log("OK")
@@ -5,11 +33,11 @@ console.log("OK")
 const onPageLoad = {};
 
 function navigate(url) {
-  const fragments = url.split("/"); // ["", "produtos", ":0"]
+  const fragments = url.split("/"); 
   const params = [];
   const output = fragments.map((x) => {
     if (x[0] === ":") {
-      params.push(x.slice(1)); // ":220" => "220"
+      params.push(x.slice(1)); 
       return "$";
     } else {
       return x;
@@ -34,17 +62,5 @@ document.body.addEventListener("click", (e) => {
   }
 });
 
-//----CARROSSEL ----//
-const imagesCarrossel = document.getElementById("img-carrossel");
-const imgCarrossel = document.querySelectorAll("#img-carrossel img");
 
-let idInit = 0;
-function carrossel() {
-    idInit++;
-    if(idInit > imgCarrossel.length - 1) {
-        idInit = 0;
-    }
-    imagesCarrossel.style.transform = `translateX(${-idInit * 1130}px)`;
-}
-setInterval(carrossel, 1900);
 
