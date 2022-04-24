@@ -37,11 +37,11 @@ function registerUser() {
     const cpf = document.getElementById("cpf").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    const secondPassword = document.getElementById("secondPassword").value;
+    const secondPassword = document.getElementById("second-password").value;
     console.log(password)
     console.log(secondPassword)
     if (secondPassword === password){
-        document.getElementById("differentPasswords").innerHTML = ""
+        document.getElementById("different-passwords").innerHTML = ""
         fetch(`${url}/clients`, {
             method: "POST",
             headers: {
@@ -74,7 +74,7 @@ function registerUser() {
             console.log("Verificar ERRO:" + err);
         });
     } else {
-        document.getElementById("differentPasswords").innerHTML = "As senhas não correspondem"
+        document.getElementById("different-passwords").innerHTML = "As senhas não correspondem"
     }
 }
         

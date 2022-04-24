@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port =  Number(process.env.SERVER_PORT);
 
-app.use('/', express.static('views/cadastro'));
+app.use('/', express.static('login'));
 app.use('/images', express.static('assets/images'));
 
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -84,7 +84,48 @@
         <footer>
             <p class="copyright-2022-pet-s">Copyright© 2022 PetSauro - Todos os direitos reservados</p>
         </footer> 
-        <script type="text/javascript" src="views/login/script.js"></script>
-        <link rel="stylesheet" href="views/login/style.css">
+        <script src="script.js"></script>
     </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>PetSauro</title>
+</head>
+
+<body>
+    <header>
+        <img id="logo-petsauro" src="images/logo-purple.svg" />
+
+    </header>
+    <main>
+        <div id="form-login">
+            <div id="inputs-form-login">
+                <div id="incorrect-data"></div>
+                <input id="email" type="email" placeholder="Digite seu email* ">
+                <input id="password" type="password" placeholder="Digite sua senha* ">
+                <span id="show-hide-password">MOSTRAR</span>
+                <p id="forgotten-password"><a href="">Esqueci minha senha</a></p>
+                <button type="button" id="btn-login" onclick="login()">Entrar</button>
+                <p id="create-account">Não tem conta? <a href="">Crie uma agora!</a></p>
+            </div>
+            <div id="welcome-login">
+                <h3 id="welcome-message">Olá! Seja bem vindo ao Petsauro!</h3>
+                <img id="welcome-image" src="images/logo.png" alt="">
+            </div>
+        </div>
+    </main>
+    <!-- <footer>
+
+   </footer> -->
+    <script src="script.js"></script>
+</body>
+
 </html>
