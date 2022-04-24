@@ -14,15 +14,18 @@ router.get('/', authorizationUser, async (req, res) => {
 });
 
 router.post('/', validateBodyClient, async (req, res) => {
+    console.log("Chegou aqui no post clients")
     const client = await getClient();
     const verifyEmail = await client.query('SELECT clients.email FROM public.clients WHERE email = $1', [req.body.email]);
+    console.log("Chegou aqui no post clients 2");
+    console.log(verifyEmail.rows[0]);
     if(verifyEmail.rows.length === 0) {
         const users = await client.query('INSERT INTO public.clients (name, email, cpf, password, created_at, created_by) VALUES ($1, $2, $3, $4, CURRENT_TIMESTAMP, 1) RETURNING*', [req.body.name, req.body.email, req.body.cpf, req.body.password]);
         await client.end();
         res.json(users.rows[0]);
     }
     else {
-        res.send("O email já existe");
+        res.status(400).send("O email já existe");
     }
 });
 

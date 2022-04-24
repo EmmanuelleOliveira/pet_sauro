@@ -1,4 +1,4 @@
-const url = "http://localhost:2000"
+const url = "http://localhost:2000";
 
 ///-----VISIBILIDADE DA SENHA----\\\
 console.log("Login.js");
