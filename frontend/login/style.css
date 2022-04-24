@@ -260,9 +260,17 @@ footer {
    --width-form-login: 1000px;
    --width-welcome-image: 300px;
    --text-color-btn-login: white;
-   --text-color-welcome-message: rgb(98,115,137);
+   --text-color-welcome-message: rgb(98,115,137);  
+}
 
-   
+@media (max-width: 500px) {
+  #form-login{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #form-login{
+    width: 100%;
+ } 
 }
 
 body{
@@ -375,5 +383,13 @@ input:focus{
   position: absolute; 
   font-size: 12px;
   color: var(--a-tag-color);
-  right: calc(var(--width-form-login) + 85px);
+  right: 5px;
+}
+
+#password-field {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
