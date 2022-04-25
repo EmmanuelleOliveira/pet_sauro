@@ -37,7 +37,7 @@ declareController(
       });
 
     //   fetch("/cadastrar-pet", {
-    //     method: "POST",
+    //     method: "UPDATE",
     //     headers: {
     //       "Content-Type": "application/json",
     //     },
