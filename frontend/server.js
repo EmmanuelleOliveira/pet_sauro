@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const port =  Number(process.env.SERVER_PORT);
 
-app.use('/', express.static('login'));
-//app.use('/cadastro', express.static('cadastro'));
-//app.use('/', express.static('cadastro_pets'));
-//app.use('/', express.static('.'));
+
+app.use('/login', express.static('login'));
+app.use('/cadastro', express.static('cadastro'));
+app.use('/', express.static('assets'));
+
+app.use('/inicial', express.static('inicial'));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
