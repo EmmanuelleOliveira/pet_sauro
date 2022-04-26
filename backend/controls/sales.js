@@ -11,7 +11,8 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', authorization, async (req, res) => {
-    const {client_id, itens, debts} = req.body;
+    const {itens, debts} = req.body;
+    const client_id = req.clientId;
     let value = 0;
     for(let i = 0; i < itens.length; i++){
         value += (itens[i].price * itens[i].quantity);

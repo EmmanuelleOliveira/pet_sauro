@@ -89,7 +89,7 @@ function mouseoutPass(senha) {
 console.log(); */
 
 /////------VALIDANDO LOGIN-------\\\\\\
-const url = "http://localhost:2000";
+const url = "http://localhost:3000";
 
 document.getElementById('show-hide-password').addEventListener('mousedown', function() {
   document.getElementById('show-hide-password').innerHTML = "OCULTAR";
@@ -135,7 +135,7 @@ function login() {
           });
         }
         response.json().then(function (data) { //colocar no console que o cliente tá logado
-          console.log(data);
+          console.log(data.prop);
         });
       })
         .catch(function (err) {

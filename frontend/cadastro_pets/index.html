@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <title>PetSauro</title>
 </head>
 <body>
@@ -18,8 +19,8 @@
             <div id="inputs-form">
                 <div id="inputs-form-informations">
                     <input id="name" type="text" placeholder="Nome do dinossauro* ">
-                    <input id="pet-weight" type="number" placeholder="Peso em gramas* " min="0">
-                    <input id="pet-height" type="number" placeholder="Altura em metros* " min="0" step="0.25">
+                    <input id="pet-weight" type="number" placeholder="Peso em quilogramas (ex = 10000.500)* " min="0.000" step="0.001" max="99999.999">
+                    <input id="pet-height" type="number" placeholder="Altura em metros (ex = 42,50)* " min="0.01" step="0.01" max="99.99">
                     <input id="description" type="text" placeholder="Descrição do dinossauro*">
                     <select id="category">
                         <option value="0">Categoria</option>
@@ -29,17 +30,17 @@
                     </select>
                 </div>
                 <div id="inputs-form-store">
-                    <input id="quantity" type="number" placeholder="Quantidade* " min="0">
-                    <input id="price" type="number" placeholder="Preço* " min="0" step="0.01">
+                    <input id="quantity" type="number" placeholder="Quantidade* " min="0" step="1">
+                    <input id="price" type="number" placeholder="Preço (ex = 999.99)* " min="0" step="0.01" max="99999999.99">
                     <input id="source-image" type="text" placeholder="Rota da imagem* "> 
                     <div id="radio-choose">
                         <p id="ask-promo">O item está em promoção?</p>
                         <div id="yes-option">
-                            <input id="promo-yes" type="radio" value="Sim" name="promo">
+                            <input id="promo-yes" type="radio" value="yes" name="promo">
                             <label class="label-promo" for="promo-yes">Sim</label>
                         </div>
                         <div id="no-option">
-                            <input id="promo-no" type="radio" value="Não" name="promo">
+                            <input id="promo-no" type="radio" value="no" name="promo" checked>
                             <label class="label-promo" for="promo-no">Não</label>
                         </div>
                     </div>
