@@ -26,7 +26,7 @@ body {
   top:0;
   left:0;
   width:100%;
-  background: #E5E5E5;
+  background: #fdfdfd;
   border-bottom: 0.8px solid #95A5A6;
   padding: 20px 10px;
 }
@@ -38,7 +38,7 @@ body {
 
 #busca {
  /* color: blue; */
- border: 0.8px;
+ /* border: 0.8px; */
  border-radius: 5px;
  width: 30vw;
  height: 5vh;
@@ -62,11 +62,12 @@ a {
 }
 
 .register {
-  background-color: rgba(190, 184, 184, 0.815);
+  background-color: #E5E5E5;
   padding: 0.8rem 0.8rem 0.8rem 0.8rem;
 }
 
 /* ///-----MENU-----\\\ */
+
 
 ul, li {
   list-style: none;
@@ -88,9 +89,9 @@ ul, li {
 }
 
 ul li a:hover {
-  color: red;
+  color: #7728ab;
   height: 20px;
-  border-bottom: 3px solid red;
+  border-bottom: 3px solid #7728ab;
   padding-bottom: 17px;
 }
 
