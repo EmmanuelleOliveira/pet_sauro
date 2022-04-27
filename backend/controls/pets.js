@@ -4,9 +4,11 @@ const authorization = require('../middlewares/authorization_users');
 const router = express.Router();
 //http://localhost:3333
 router.get('/', authorization, async (req, res) => {
+    console.log("Chegou na rota de pets")
     const client = await getClient();
     const users = await client.query('SELECT * FROM public.pets');
     await client.end();
+    console.log(users.rows)
     res.json(users.rows);
 });
 
