@@ -131,9 +131,9 @@ ul li a {
 .detalhe-produto {
   display: flex;
   justify-content: space-around;
-  border: 0.5px solid #95a5a6;
+  border: 0.5px solid #95A5A6;
   border-radius: 5px;
-  width: 65vw;
+  width: 85vw;
   margin-left: auto;
   margin-right: auto;
   padding: 1rem 1rem 1rem 1rem;
@@ -144,19 +144,17 @@ ul li a {
 }
 
 #detalhe-img {
-  width: 7vw;
-  height: 14vh;
-  margin-left: -3rem;
+  width: 25vw;
+  height: 60vh;
 }
 
 .infor-detalhe {
-  width: 15vw;
-  height: 10vh;
+  width: 25vw;
+  height: 60vh;
 }
 
-ul {
-  margin-top: -0.5rem;
-  margin-left: -5rem;
+ul li {
+  margin-bottom: 2rem;
 }
 
 #price-pet {
@@ -168,22 +166,22 @@ ul {
 }
 
 li {
-  font-size: 12px;
+  font-size: 15px;
 }
 
 #price-pet {
-  font-size: 12px;
-  color: #6b1d9e;
-  /* text-align: center; */
-  /* border-bottom: 2px solid #6b1d9e; */
+  font-size: 20px;
+  color:#6b1d9e;
+  text-align: center;
+  border-bottom: 2px solid #6b1d9e;
   float: right;
 }
 
-.pgto-produto {
-  /* margin-top: 0.2rem; */
-  height: 10vh;
-  border-left: 2px solid #6b1d9e;
-  margin-left: -20px;
+.pgto-produto{
+  margin-top: 1.6rem;
+  height: 50vh;
+  border-left: 2px solid #6b1d9e; 
+  margin-left: -20px;     
 }
 
 button {
@@ -192,38 +190,44 @@ button {
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  margin-left: 30px;
+  margin-left: 30px;  
 }
-button a {
-  color: #fdfdfd;
+.pgto-produto div {
+  /* border-bottom: 1px solid #6b1d9e; */
+  margin-top: 20px;
+  margin-left: 10px;
 }
-
-.pgto-produto ul li {
-  display: inline;
-  width: 100%;
-  /* justify-content: space-between; */
-  float: right;
-  margin-right: -10rem;
-}
-
-#finish-purchase {
+#shopping-cart {
   background-color: #6b1d9e;
   color: #fdfdfd;
   font-weight: bold;
   margin-left: 20px;
-  border-bottom: 1px solid #6b1d9e;
+  border-bottom: 1px solid #6b1d9e;  
 }
-/* #continue-purchase {
-    background-color:#95A5A6;
-    color:#fdfdfd;
-    font-weight: bold;
-    margin-left: 20px;
-    border-bottom: 1px solid #6b1d9e; 
-  } */
+#finalize-purchase {
+  background-color:#d605a2;
+  color:#fdfdfd;
+  font-weight: bold;
+  margin-left: 20px;
+  border-bottom: 1px solid #6b1d9e; 
+}
 
-.pgto-produto button {
-  margin-bottom: 5rem;
+.pgto-produto button{
+  margin-bottom: 3rem;  
 }
+
+#return { 
+  background-color: #95A5A6;
+  width: 15vw;
+  height: 8vh;
+  border-radius: 5px;
+  border: none;
+  margin-left: 3.3rem;
+  margin-right: auto;
+  color:#fdfdfd;
+  font-weight: bold;
+}
+
 
 /* ///-----FOOTER-----\\\ */
 footer {
@@ -236,57 +240,4 @@ footer {
   text-align: center;
   padding: 8px 0;
   border-top: 0.5px solid #95a5a6;
-}
-
-
-
-
-
-/* ///-----EXEMPLO------\\\ */
-
-
-*,
-button,
-.btn,
-input {
-	font-family: 'Domine';
-}
-
-
-
-/* Arrumar navbar */
-
-#image {
-	margin-top: .5em;
-	margin-left: 1em;
-	margin-right: 1em;
-}
-
-#ul {
-	margin-top: -0.2em;
-	margin-left: 1em;
-}
-
-#usuario {
-	margin-top: -0.4em;
-	margin-left: 1em;
-}
-
-#botao {
-	margin-left: -4em;
-}
-
-nav {
-	padding-top: .5rem;
-	margin-bottom: 3rem;
-}
-
-/* CSS Mobile*/
-
-@media screen and (max-width: 640px) {
-	body,
-	table,
-	fieldset {
-		max-width: 640px;
-	}
 }

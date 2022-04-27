@@ -5,7 +5,8 @@
 * {
   box-sizing: border-box;
 }
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -13,12 +14,12 @@ html, body {
 }
 
 body {
-  min-height:500px;  
+  min-height: 500px;
   background: #fdfdfd;
   font-size: 12px;
   /* font-weight: bold; */
   color: #202020;
-  font-family: roboto, serif; 
+  font-family: roboto, serif;
 }
 
 /* ///-----INDEX PRINCIPAL - TODAS AS PÁGINAS----\\\\ */
@@ -26,17 +27,17 @@ body {
   overflow: hidden;
   display: flex;
   justify-content: space-around;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background: #fdfdfd;
-  border-bottom: 0.8px solid #95A5A6;
+  border-bottom: 0.8px solid #95a5a6;
   padding: 20px 10px;
 }
 
-header:hover{
-  color:#6b1d9e
+header:hover {
+  color: #6b1d9e;
 }
 
 #name-logo {
@@ -45,10 +46,10 @@ header:hover{
 }
 
 #busca {
- border: solid 0.5px #95A5A6;
- border-radius: 5px;
- width: 30vw;
- height: 5vh;
+  border: solid 0.5px #95a5a6;
+  border-radius: 5px;
+  width: 30vw;
+  height: 5vh;
 }
 
 a {
@@ -64,23 +65,22 @@ a:hover {
 
 #pedido img {
   float: left;
-  margin-right: 20px;  
-   
+  margin-right: 20px;
 }
 .requests a {
   float: left;
-  margin-right: 20px;  
+  margin-right: 20px;
 }
 
 .register {
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
   padding: 0.8rem 0.8rem 0.8rem 0.8rem;
 }
 
 /* ///-----MENU-----\\\ */
 
-
-ul, li {
+ul,
+li {
   list-style: none;
 }
 
@@ -92,12 +92,12 @@ ul, li {
   margin-top: auto;
   background-color: #fdfdfd;
   justify-content: space-around;
-  border-bottom: 0.8px solid #95A5A6;
+  border-bottom: 0.8px solid #95a5a6;
 }
 
 .page-menu {
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   margin: 10px auto;
 }
 
@@ -121,61 +121,37 @@ ul li a {
   display: flex;
 }
 
-.carrossel {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  overflow: hidden;
-  height: 300px;
-  width: 1130px;
-  display: flex;
-  align-items: center;
-  /* justify-content: center; */
-  min-height: 35vh;
-  margin: 0;
-  margin-left: auto;
-  margin-right: auto;
-}
-.container-carrossel img{
-  display: inline-block;
-}
-.container-carrossel {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  transform: translateX(0);
-  /* margin-left: 350px; */
-}
-.img-carrossel {
-  /* object-fit: cover; */
-  height: 300px;
-  width: 1130px;  
-}
-
-
 h2 {
-  color: #202020;
-  text-align: center;
+  color: #7728ab;
+  /* text-align: center; */
   margin-top: 15px;
+  font-size: 18px;
+}
+#img-page-onivoro img {
+  width: 9vw;
 }
 
-.page-init-container {
+/* *, :after, :before {
+    box-sizing: border-box;
+  } */
+
+.onivoro-container {
   /* background-color: blue; */
   display: flex;
-  width: 97vw;
-  margin-left: 11px;
-  /* position: absolute; */
+  /* width: 78.5vw; */
+  margin-top: 30px;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   border: 0.1rem solid #d3d9de;
-  box-shadow: 0 2px 2px 3px rgb(0 0 0 / 8%);
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 8%);
   border-radius: 0.4rem;
   padding: 1.5rem 1.5rem 0.5rem 1.5rem;
   margin-right: 2%;
-  margin-bottom: 2rem; 
+  margin-bottom: 2rem;
 }
 
-.catalog-page-init {
-  position: relative;
+.catalog-onivoro {
   min-height: 300px;
   /* display: inline-block; */
   border: 0.1rem solid #d3d9de;
@@ -186,10 +162,11 @@ h2 {
   margin-bottom: 3rem;
   /* width: 20%; */
 }
-.catalog-page-init:hover {
+.catalog-onivoro:hover {
   cursor: pointer;
 }
-.img-catalog-page-init img {
+
+.img-catalog-onivoro img {
   display: inline-block;
   border-radius: 50%;
   width: 160px;
@@ -197,13 +174,47 @@ h2 {
   margin-bottom: 25px;
   /* margin-left: 25px; */
 }
-.inform-pet-init {
+.inform-onivoro {
   text-align: center;
 }
 
-h3, h4 {
-  color: #323535;
+h3,
+h4 {
+  color: #7728ab;
 }
+
+h4 {
+  margin-left: 20px;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.btn-filtro button {
+  border-radius: 5px;
+  width: 100%;
+  height: 5vh;
+  color: #7728ab;
+  cursor: pointer;
+  border: none;
+}
+.filtro-container {
+  /* background-color: red; */
+  width: 18vw;
+  /* height: 58vh; */
+  float: left;
+  margin-top: 30px;
+  border: 0.1rem solid #d3d9de;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 8%);
+  border-radius: 0.4rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  margin-right: 2%;
+  margin-bottom: 2rem;
+}
+
+.filtro {
+  margin-left: 10px;
+}
+
 
 /* ///-----FOOTER TODAS PÁGINAS-----\\\ */
 footer{
