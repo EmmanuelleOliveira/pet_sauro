@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <title>PetSauro</title>
-  </head>
-  <body>
-   <header class="header-container">      
+
+<head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+   <title>PetSauro</title>
+</head>
+
+<body>
+   <!--   <header class="header-container">      
       <nav class="header">
 
          <div class="logo-name">
@@ -27,9 +29,9 @@
             <a href="/pedido" class="nav__link" data-link>Meus Pedidos</span></a>
          </div>
          
-         <div class="shopping-cart">
-            <!-- <a href="/carrinho" class="nav__link" data-link><span id="carrinho"><img src="images/carrinho.png" title="Ver Meu Carrinho"/></span></a> -->
-            <img id="carrinho" src="../assets/images/carrinho.png" title="Ver Meu Carrinho" onclick="showShopCart()"/>
+         <div class="shopping-cart"> -->
+   <!-- <a href="/carrinho" class="nav__link" data-link><span id="carrinho"><img src="images/carrinho.png" title="Ver Meu Carrinho"/></span></a> -->
+   <!--             <img id="carrinho" src="../assets/images/carrinho.png" title="Ver Meu Carrinho" onclick="showShopCart()"/>
             <span id="quant-iten">0</span>
          </div>
 
@@ -70,123 +72,116 @@
             </ul>
 
          </nav>
-      </main>
-      <!-- <img id="logo-index" src="./assets/images/logo.png" alt="" />       -->
-      <div id="spa-page-container">
-         <!-- ---- SPA PAGINA INICIAL ---- -->
-      
-         <div class="carrossel">
-            <div class="container-carrossel" id="img-carrossel">
-<<<<<<< HEAD:frontend/inicial/index.html
-               <img class="img-carrossel" id="dino-4" src="images/dino-4.jpg" alt=""/>
-               <img class="img-carrossel" id= "dino-5" src="images/dino-5.jpg" alt=""/>
-               <img class="img-carrossel" id="dino-6" src="images/dino-6.jpg" alt=""/>
-=======
-            <img class="img-carrossel" id="dino-4" src="../assets/images/dino-4.jpg" alt=""/>
-            <img class="img-carrossel" id= "dino-5" src="../assets/images/dino-5.jpg" alt=""/>
-            <img class="img-carrossel" id="dino-6" src="../assets/images/dino-6.jpg" alt=""/>
->>>>>>> 977d2c9187d77ddb6a35f7873370e4c24a802894:frontend/source/index.html
-            </div>
+      </main> -->
+   <header>
+      <a href="/" class="nav__link" data-link>
+         <img id="logo-petsauro" src="../assets/images/logo-purple.svg">
+      </a>
+      <div id="header-left">
+         <div id="shopping-cart" onclick="showShopCart()">
+            <img id="img-shopping-cart" src="../assets/images/shopping-cart.png" alt="">
+            <div id="number"></div>
          </div>
-         <h2> DinoPet Mais Procurados</h2>
-         <section style="display: none; position: fixed; top: 0; left: 0; z-index: 1000; width: 100vw; height: 100vh; justify-content: center; align-items: center;" id="modal-test">
-            <div style = "background-color: yellow; width: 50vw; height: 50vh;">
-               <p id="modal-pet-name"></p>
-               <p id="modal-pet-price"></p>
-               <label for="modal-quantity">Quantidade</label>
-               <input type="number" id="modal-quantity" min="1" step="1">
-               <input type="hidden" id="price-hidden">
-               <input type="hidden" id="pet-id">
-               <p id="modal-pet-total"></p>
-               <button type="button" id="modal-cancel" onclick="cancelPet()">Cancelar</button>
-               <button type="button" id="modal-add" onclick="addPet()">Adicionar</button>
-            </div>
-         </section>
-         <section style="display: none; position: fixed; top: 0; left: 0; z-index: 1000; width: 100vw; height: 100vh; justify-content: center; align-items: center;" id="modal-buy">
-            <div style = "background-color: yellow; width: 50vw; height: 50vh;">
-               <div>
-                  <table id="table-itens"></table>
-                  <div id="total"></div>
-               </div>
-               <div id="table-payment">
-                  <select name="payment-type" id="payment-select">
-                     <option value="0">Forma de pagamento</option>
-                     <option value="1">Pix</option>
-                     <option value="2">Boleto</option>
-                     <option value="3">Crédito</option>
-                  </select>
-                  <select name="payment-quantity" id="quantity-select" style="display: none;">
-                     <option value="0">Número de parcelas</option>
-                     <option value="1">1</option>
-                     <option value="2">2</option>
-                     <option value="4">4</option>
-                  </select>
-               </div>
-               <button type="button" id="modal-cancel-buy" onclick="cancelBuy()">Cancelar</button>
-               <button type="button" id="modal-add-buy" onclick="addBuy()">Adicionar</button>
-            </div>
-         </section>
-   
-         <div class="page-init-container">
-   
-            <!-- <div class="catalog-page-init">
-               <div class="img-catalog-page-init">
-                  <img class="img-page-init" src="./assets/images/rex-filhote.jpg" alt=""/>
-               </div>
-               <div class="inform-pet-init">
-                  <h3 class="name-pet">TIRANOSSAURO REX</h3>
-                  <h4 class="category-pet">Carnívoro</h4>
-                  <h4 class="height-pet">8<span> M</span></h4>
-                  <h4 class="price-pet"><span>R$ </span>10.000</h4>
-               </div>
-            </div>
-            
-            <div class="catalog-page-init">
-               <div class="img-catalog-page-init">
-                  <img class="img-page-init" src="./assets/images/rex-filhote.jpg" alt=""/>
-               </div>
-               <div class="inform-pet-init">
-                  <h3 class="name-pet">TIRANOSSAURO REX</h3>
-                  <h4 class="category-pet">Carnívoro</h4>
-                  <h4 class="height-pet">8<span> M</span></h4>
-                  <h4 class="price-pet"><span>R$ </span>10.000</h4>
-               </div>
-            </div>
-            <div class="catalog-page-init">
-               <div class="img-catalog-page-init">
-                  <img class="img-page-init" src="./assets/images/rex-filhote.jpg" alt=""/>
-               </div>
-               <div class="inform-pet-init">
-                  <h3 class="name-pet">TIRANOSSAURO REX</h3>
-                  <h4 class="category-pet">Carnívoro</h4>
-                  <h4 class="height-pet">8<span> M</span></h4>
-                  <h4 class="price-pet"><span>R$ </span>10.000</h4>
-               </div>
-            </div>
-            <div class="catalog-page-init">
-               <div class="img-catalog-page-init">
-                  <img class="img-page-init" src="./assets/images/rex-filhote.jpg" alt=""/>
-               </div>
-               <div class="inform-pet-init">
-                  <h3 class="name-pet">TIRANOSSAURO REX</h3>
-                  <h4 class="category-pet">Carnívoro</h4>
-                  <h4 class="height-pet">8<span> M</span></h4>
-                  <h4 class="price-pet"><span>R$ </span>10.000</h4>
-               </div>
-            </div> -->
+         <div id="client-id">
+            <a href="./views/login" class="nav__link" data-link id="login">Entrar</a>
+            <span>|</span>
+            <a id="register" href="./views/cadastro" class="nav__link" data-link>Cadastrar</a>
          </div>
       </div>
-    
+   </header>
+   <!-- <img id="logo-index" src="./assets/images/logo.png" alt="" />       -->
+   <!-- <div id="spa-page-container"> -->
+   <!-- ---- SPA PAGINA INICIAL ---- -->
+   <main>
+      <div class="slideshow-container">
 
-    <footer>Copyright© 2022 PetSauro - Todos os direitos reservados</footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>    
-  </body>
+         <div class="mySlides fade">
+            <img src="./assets/images/banner-1.png" style="width:100%">
+         </div>
+
+         <div class="mySlides fade">
+            <img src="./assets/images/banner-2.png" style="width:100%">
+         </div>
+
+         <div class="mySlides fade">
+            <img src="./assets/images/banner-3.png" style="width:100%">
+         </div>
+
+      </div>
+
+      <div style="text-align:center">
+         <span class="dot"></span>
+         <span class="dot"></span>
+         <span class="dot"></span>
+      </div>
+      <!-- <div id="lazyload-carrossel">
+         <div class="container-carrossel" id="img-carrossel">
+            <img class="img-carrossel" id="dino-4" src="../assets/images/banner-1m.png" alt="" />
+            <img class="img-carrossel" id="dino-5" src="../assets/images/banner-2m.png" alt="" />
+            <img class="img-carrossel" id="dino-6" src="../assets/images/banner-3.png" alt="" />
+         </div>
+      </div> -->
+      <div id="title">
+         <h2>PetSauros disponíveis</h2>
+      </div>
+      <section
+         style="display: none; position: fixed; top: 0; left: 0; z-index: 1000; width: 100vw; height: 100vh; justify-content: center; align-items: center;"
+         id="modal-test">
+         <div style="background-color: yellow; width: 50vw; height: 50vh;">
+            <p id="modal-pet-name"></p>
+            <p id="modal-pet-price"></p>
+            <label for="modal-quantity">Quantidade</label>
+            <input type="number" id="modal-quantity" min="1" step="1">
+            <input type="hidden" id="price-hidden">
+            <input type="hidden" id="pet-id">
+            <p id="modal-pet-total"></p>
+            <button type="button" id="modal-cancel" onclick="cancelPet()">Cancelar</button>
+            <button type="button" id="modal-add" onclick="addPet()">Adicionar</button>
+         </div>
+      </section>
+      <section
+         style="display: none; position: fixed; top: 0; left: 0; z-index: 1000; width: 100vw; height: 100vh; justify-content: center; align-items: center;"
+         id="modal-buy">
+         <div style="background-color: yellow; width: 50vw; height: 50vh;">
+            <div>
+               <table id="table-itens"></table>
+               <div id="total"></div>
+            </div>
+            <div id="table-payment">
+               <select name="payment-type" id="payment-select">
+                  <option value="0">Forma de pagamento</option>
+                  <option value="1">Pix</option>
+                  <option value="2">Boleto</option>
+                  <option value="3">Crédito</option>
+               </select>
+               <select name="payment-quantity" id="quantity-select" style="display: none;">
+                  <option value="0">Número de parcelas</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="4">4</option>
+               </select>
+            </div>
+            <button type="button" id="modal-cancel-buy" onclick="cancelBuy()">Cancelar</button>
+            <button type="button" id="modal-add-buy" onclick="addBuy()">Adicionar</button>
+         </div>
+      </section>
+      <div id="products"></div>
+   </main>
+
+   <footer>
+      <div id="footer-left">
+         <p>PetSauro Comércio de Animais S.A</p>
+         <p>CNPJ: 15.425.716/0001-27</p>
+      </div>
+      </div>
+      <div id="footer-right">
+         <p>Compra segura - A PetSauro garante segurança para suas informações pessoais e financeiras</p>
+         <p>Copyright© 2022 PetSauro - Todos os direitos reservados</p>
+      </div>
+   </footer>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="../spa-biblioteca.js"></script>
+   <script type="text/javascript" src="script.js"></script>
+</body>
+
 </html>
-
-    
-    
-    
-    
-    
-    

@@ -1,5 +1,7 @@
+//import {htmlLogin} from './index-html/login.js'
+//console.log(htmlLogin)
 //----CARROSSEL ----//
-const imagesCarrossel = document.getElementById("img-carrossel");
+/* const imagesCarrossel = document.getElementById("img-carrossel");
 const imgCarrossel = document.querySelectorAll("#img-carrossel img");
 
 let idInit = 0;
@@ -10,10 +12,27 @@ function carrossel() {
   }
   imagesCarrossel.style.transform = `translateX(${-idInit * 1130}px)`;
 }
-setInterval(carrossel, 1900);
+setInterval(carrossel, 3000); */
+
+//Carrossel
+
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  slides[slideIndex-1].style.display = "block";  
+  setTimeout(showSlides, 4000); 
+}
 
 
-const url = "http://localhost:3000";
+const url = "http://localhost:8000";
 
 fetch(`${url}/pets`, {
   method: "GET",
@@ -43,13 +62,13 @@ fetch(`${url}/pets`, {
 
 function renderCardItem(pet, container) {
   const {
-    name, weight, 
-    price, height, 
-    category_id, url_image, 
-    description, price_promo, 
+    name, weight,
+    price, height,
+    category_id, url_image,
+    description, price_promo,
     promo_verify, quantity, id
   } = pet;
-  console.log(pet);
+  console.log(promo_verify);
   let category = "";
   if (category_id === 1) {
     category = "Carnívoro";
@@ -58,25 +77,38 @@ function renderCardItem(pet, container) {
   } else {
     category = "Onívoro";
   }
-  container.innerHTML += 
-  `<div class="catalog-page-init" title="Mais Detalhes">
-    <a href="/detalhe_produto" class="nav__link" data-link>
-    <div class="img-catalog-page-init">
-      <img id="img-page-init" src="${url_image}"  alt=""/>
-    </div>
-    <div class="inform-pet-init">
-      <h3 id="name-pet">${name}</h3>
-      <h4 id="category-pet">${category}</h4>
-      <h4 id="height-pet">${height}<span> Metros</span></h4>
-      <h4 id="price-pet"><span>R$ </span>${price}</h4>
-    </div>
-    </a>
-    <button type="button" class="btn-buy" onclick="addCar(${id}, '${name}', ${price})">Comprar</button>
-</div>`;
+  if (promo_verify === true) {
+    container.innerHTML +=
+      `<div class="card" title="Mais Detalhes">
+      <a href="/detalhe_produto" class="nav__link" data-link>
+      <img class="img-pet" src="${url_image}"  alt=""/>
+      <div class="informations-card">
+        <h3 class="name-pet">${name}</h3>
+        <h4 class="category-pet">${category}</h4>
+        <h4 class="price-pet-old"><span>R$ </span>${price}</h4>
+        <h4 class="price-pet"><span>R$ </span>${price_promo}</h4>
+      </div>
+      </a>
+      <button type="button" class="btn-buy" onclick="addCar(${id}, '${name}', ${price})">Comprar</button>
+  </div>`;
+  } else {
+    container.innerHTML +=
+      `<div class="card" title="Mais Detalhes">
+      <a href="/detalhe_produto" class="nav__link" data-link>
+        <img class="img-pet" src="${url_image}"  alt=""/>
+        <div class="informations-card">
+          <h3 class="name-pet">${name}</h3>
+          <h4 class="category-pet">${category}</h4>
+          <h4 class="price-pet-no-promo"><span>R$ </span>${price}</h4>
+        </div>
+      </a>
+      <button type="button" class="btn-buy" onclick="addCar(${id}, '${name}', ${price})">Comprar</button>
+  </div>`;
+  }
 }
 
 function renderCards(pets) {
-  const container = document.querySelector(".page-init-container");
+  const container = document.querySelector("#products");
   for (let i = 0; i < pets.length; i++) {
     renderCardItem(pets[i], container);
   }
@@ -86,7 +118,7 @@ const modalName = document.getElementById("modal-pet-name");
 const modalPrice = document.getElementById("modal-pet-price");
 const modalQuantity = document.getElementById("modal-quantity");
 const modalTotal = document.getElementById("modal-pet-total");
-modalQuantity.addEventListener('input', function (){
+modalQuantity.addEventListener('input', function () {
   const pricePet = Number(priceHidden.value);
   const quantityPet = Number(modalQuantity.value);
   modalTotal.innerHTML = pricePet * quantityPet;
@@ -114,11 +146,11 @@ function addPet() {
   const quantityPet = modalQuantity.value;
   const petId = Number(petIdHidden.value);
   const quantityFormat = /^(\+?[1-9]\d*)$/;
-  if(quantityFormat.test(quantityPet)) {
+  if (quantityFormat.test(quantityPet)) {
     const carItem = {
       "pet_id": petId,
       "name": modalName.innerHTML,
-      "quantity":quantityPet,
+      "quantity": quantityPet,
       "price": pricePet
     }
     let carLocalStorage = getCar();
@@ -156,7 +188,7 @@ function fillTable() {
   <th>Preço</th>
   <th>Total</th>
   <th>Remover</th>
-  </tr>`; 
+  </tr>`;
   tableItens.innerHTML += car.map((item, index) => {
     total = total + (item.price * item.quantity);
     return `
@@ -168,13 +200,13 @@ function fillTable() {
     <td><button type="button" class="btn-remove-itens" onclick='removeItemCar(${index})'>Remover item</button></td>
     </tr>
     `
-  }).join(""); 
+  }).join("");
   document.getElementById("total").innerHTML = `${total}`;
 }
 
 function removeItemCar(index) {
   const car = getCar();
-  car.splice(index,1);
+  car.splice(index, 1);
   setCar(car);
   fillTable();
 }
@@ -185,7 +217,7 @@ function clearTable() {
 
 const modalBuy = document.getElementById("modal-buy");
 
-function showShopCart(){
+function showShopCart() {
   modalBuy.style.display = "flex";
   fillTable();
   optionsPayments();
@@ -203,7 +235,7 @@ document.getElementById("payment-select").addEventListener("change", () => {
 
 function totalSales(itens) {
   let value = 0;
-  for(let i = 0; i < itens.length; i++){
+  for (let i = 0; i < itens.length; i++) {
     value += (itens[i].price * itens[i].quantity);
   }
   return value;
@@ -214,32 +246,32 @@ function addBuy() {
   const car = getCar();
   const total = totalSales(car);
   const debts = [];
-  switch (Number(modalPaymentSelect.value)){
-    case 1: 
+  switch (Number(modalPaymentSelect.value)) {
+    case 1:
       debts.push({
         "value": total,
         "status": false,
         "due_date": "2022-05-13",
         "payment_type_id": 1
-      }) 
+      })
       break;
-    case 2: 
+    case 2:
       debts.push({
         "value": total,
         "status": false,
         "due_date": "2022-05-13",
         "payment_type_id": 2
-      }) 
+      })
       break;
     case 3: {
       console.log("ATENÇÃO", modalPayment.value)
-      for (let i = 0; i < Number(modalPayment.value); i++){
+      for (let i = 0; i < Number(modalPayment.value); i++) {
         debts.push({
-          "value": total/Number(modalPayment.value),
+          "value": total / Number(modalPayment.value),
           "status": false,
           "due_date": "2022-05-13",
           "payment_type_id": 3
-        }) 
+        })
       }
       break;
     }
@@ -248,9 +280,10 @@ function addBuy() {
     "itens": car.map(item => {
       return {
         "price": item.price,
-			  "quantity": item.quantity,
-			  "pet_id": item.pet_id}
-    }), 
+        "quantity": item.quantity,
+        "pet_id": item.pet_id
+      }
+    }),
     "debts": debts
   }
   clearCar();
@@ -264,7 +297,7 @@ function addBuy() {
       'Access-Control-Allow-Credentials': true
     },
     credentials: "include",
-      body: JSON.stringify(sale)
+    body: JSON.stringify(sale)
   })
     .then(function (response) {
       if (response.status !== 200) {
@@ -281,16 +314,28 @@ function addBuy() {
     .catch(function (err) {
       console.log("Verificar ERRO:" + err);
     });
-  
+
 }
 
 function optionsPayments() {
   let optionChoosed = Number(document.getElementById("payment-select").value);
-    if (optionChoosed === 3) {
-      modalPayment.style.display = "flex";
-    } else {
-      modalPayment.style.display = "none";
-    }
+  if (optionChoosed === 3) {
+    modalPayment.style.display = "flex";
+  } else {
+    modalPayment.style.display = "none";
+  }
 }
+
+function loginPage() {
+  console.log("Estou no login");
+  //document.querySelector('body').innerHTML = `${htmlLogin}` 
+}
+
+function soma() {
+  console.log(2+1)
+}
+
+soma()
+
 
 //Fazer Validações

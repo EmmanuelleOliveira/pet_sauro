@@ -1,0 +1,134 @@
+<!-- <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>PetSauro</title>
+</head>
+    <body>
+        <header class="menu-principal">
+            <main>
+                <div class="header-1">
+                    <div class="logo">
+                        <a href="">
+                            <img src="./assets/images/logo.png" width="65px" height="65px" alt=""/>
+                        </a>
+                    </div>
+                        <img id="logo-name" src="./assets/images/petsauro80 1.png" width="50px" height="50px" alt=""/>
+                    <div class="cadastro-login">
+                        <ul>
+                            <li>
+                                  <a href="/cadastro" class="nav__link" data-link>
+                                  <img src="./assets/images/pessoa.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <span>Olá, </span><span id="cadastro"><a href="/cadastro" class="nav__link" data-link>Fulano</a></span>
+                                <span id="sair">| <a href="http://www.google.com/search"><span id="cadastro">Sair</span></a></span><br/>
+                                <p><span id="acompanhar"><a href="/acompanhar">Pedido</a></span></p>
+                            </li>
+                            <li>                        
+                                <a href="/carrinho" class="nav__link" data-link>
+                                    <img src="./assets/images/carrinho.png" />
+                                </a>
+                                <a href="/pedido" class="nav__link" data-link>
+                                    <span id="pedido">0</span>
+                                </a>                          
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </header> 
+        <div class="spa-page-container" data-page="/cadastro"></div> 
+            
+            <h4><a href="/" class="nav__link" data-link>Página Inicial</a><span>> Login</span></h4>
+
+            <div class="container">
+                <div class="header-login">
+                    <h2>Login</h2>
+                </div>
+
+                <form class="form" id="form">
+                
+                    <div class="form-control">
+        
+                        <label>Email</label>
+                        <input type="email" id="email">
+                        <i><img class="img-success" src="./assets/images/sucesso.png" alt=""></i>
+                        <i><img class="img-error" src="./assets/images/erro.png" alt=""></i>
+                        <small>Error Message</small>
+        
+                    </div>
+        
+                    <div class="form-control">
+        
+                        <label>Senha</label>
+                        <input type="password" name="" id="password">
+                        <i><img class="img-success" src="./assets/images/sucesso.png" alt=""></i>
+                        <i><img class="img-error" src="./assets/images/erro.png" alt=""></i>
+                        <img src="./assets/images/visivel.png" onclick="mouseoverPass();" onmouseout="mouseoutPass();" id="olho" class="olho"/>
+                        <small>Error Message</small>
+        
+                    </div>
+
+                    <button onclick="login()" type="button" nome="acao">ENVIAR</button>
+                    <div class="form-control">
+                        <p id="esqueci-senha"><a href="">Esquecia a Senha</a></p>
+                    </div>
+                </form>
+            </div>
+            
+        <footer>
+            <p class="copyright-2022-pet-s">Copyright© 2022 PetSauro - Todos os direitos reservados</p>
+        </footer> 
+        <script src="script.js"></script>
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> -->
+    <title>PetSauro</title>
+</head>
+
+<body>
+    <header id="header-login">
+        <a href="/" class="nav__link" data-link>
+            <img id="logo-petsauro" src="./images/logo-purple.svg"></a>
+
+    </header>
+    <main>
+        <div id="form-login">
+            <div id="inputs-form-login">
+                <div id="incorrect-data"></div>
+                <input id="email" type="email" placeholder="Digite seu email* ">
+                <div id="password-field">
+                    <input id="password" type="password" placeholder="Digite sua senha* ">
+                    <span id="show-hide-password">MOSTRAR</span>
+                </div>
+                <p id="forgotten-password"><a href="">Esqueci minha senha</a></p>
+                <button type="button" id="btn-login" onclick="login()">Entrar</button>
+                <p id="create-account">Não tem conta? <a href="../cadastro">Crie uma agora!</a></p>
+            </div>
+            <div id="welcome-login">
+                <h3 id="welcome-message">Olá! Seja bem vindo ao Petsauro!</h3>
+                <img id="welcome-image" src="images/logo.png" alt="">
+            </div>
+        </div>
+    </main>
+    <!-- <footer>
+
+   </footer> -->
+    <script src="script.js"></script>
+</body>
+
+</html>
