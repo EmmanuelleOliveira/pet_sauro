@@ -61,6 +61,7 @@ app.post('/loginusers', async (req,res) => {
 }); */
 
 app.post('/login', async (req,res) => {
+    console.log("chegou aqui")
     const {email, password} = req.body;
     console.log(email, password)
     const checkRegex = /^(\s?[^\s,]+@[^\s,]+\.[^\s,]+\s?,)*(\s?[^\s,]+@[^\s,]+\.[^\s,]+)$/;
