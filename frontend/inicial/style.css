@@ -53,7 +53,7 @@ header:hover{
 
 a {
   text-decoration: none;
-  color: #202020;
+  color: #353434;
   font-size: 15px;
   /* font-weight: bold; */
 }
@@ -129,30 +129,28 @@ ul li a {
   width: 1130px;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
+  
   min-height: 35vh;
   margin: 0;
   margin-left: auto;
   margin-right: auto;
 }
-.container-carrossel img{
-  display: inline-block;
-}
+
 .container-carrossel {
   display: flex;
   transition: transform 0.5s ease-in-out;
   transform: translateX(0);
-  /* margin-left: 350px; */
+  /* margin-left: 350px; */  
 }
-.img-carrossel {
-  /* object-fit: cover; */
+.img-carrossel {  
   height: 300px;
-  width: 1130px;  
+  width: 1130px; 
+   
 }
 
 
 h2 {
-  color: #202020;
+  color: #7728ab;
   text-align: center;
   margin-top: 15px;
 }
@@ -202,7 +200,9 @@ h2 {
 }
 
 h3, h4 {
-  color: #323535;
+  color: #7728ab;
+  font-weight: lighter;
+
 }
 
 /* ///-----FOOTER TODAS PÁGINAS-----\\\ */
