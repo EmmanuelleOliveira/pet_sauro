@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>PetSauro</title>
+  </head>
+  <body>
+   <header class="header-container">      
+      <nav class="header">
+
+         <div class="logo-name">
+            <a href="/inicial" class="nav__link" data-link>
+               <img id="name-logo" id="logo-petsauro" src="images/logo-purple.png" alt="" title="Página Inicial"/>
+            </a>
+         </div>
+
+         <div class="search" class="nav__link" data-link>
+            <input id="busca" placeholder="Pesquisar" type="text" />
+         </div>
+
+         <div class="requests">
+            <a href="/acompanhar_pedido" class="nav__link" data-link><span id="pedido"><img src="images/request.png" title="Status do Pedido"/></a>
+            <a href="/pedido" class="nav__link" data-link>Meus Pedidos</span></a>
+         </div>
+         
+         <div class="shopping-cart">
+            <a href="/carrinho" class="nav__link" data-link><span id="carrinho"><img src="images/carrinho.png" title="Ver Meu Carrinho"/></span></a>
+            <span id="quant-iten">0</span>
+         </div>
+
+         <div class="register">
+            <span id="login"><a href="/login" class="nav__link" data-link>Entrar</a></span>
+            <span>|</span>
+            <a href="/cadastro" class="nav__link" data-link><span id="cadastro">Cadastro</span></a>
+         </div>
+
+         <div class="stoped">
+            <span id="sair"><a href="http://www.google.com/search">Sair</a></span>
+         </div>
+
+      </nav>
+   </header>
+
+      <main class=" header-2">
+         <nav>
+
+            <ul class="nav-menu">
+
+               <li class="page-menu">
+                 <a href="/inicial" class="nav__link" data-link>Página Inicial</a>
+               </li>
+               <li class="page-menu">
+                 <a href="/carnivoro" class="nav__link" data-link>Carnívoro</a>
+               </li>
+               <li class="page-menu">
+                 <a href="/herbivoro" class="nav__link" data-link>Herbívoro</a>
+               </li>
+               <li class="page-menu">
+                 <a href="/onivoro" class="nav__link" data-link>Onívoro</a>
+               </li>
+               <li class="page-menu">
+                 <a href="/promocao" class="nav__link" data-link>Promoções</a>
+               </li>
+                            
+            </ul>
+
+         </nav>
+      </main>
+      <!-- <img id="logo-index" src="./assets/images/logo.png" alt="" />       -->
+
+
+      <div id="spa-page-container">
+         <!-- ---- SPA PAGINA INICIAL ---- -->
+
+         <h2><a href="/inicial" class="nav__link" data-link>Página Inicial</a><span>> Onivoro</span></h2>
+            <div class="img-onivoro">
+               <img id="img-page-onivoro" src="images/onivoro.png" width="100%" alt=""/>
+            </div>
+
+            <!-- ---- FILTRO ---- -->
+         <div class="filtro-container">
+            <div class="filtro">
+               <div class="btn-filtro">
+                  <button onclick="filterOnivoro()" id="filtro-btn">Ver Filtro</button>
+               </div>
+               <div id="esconder-filtro" id="ver-filtro">
+                  <div class="filter-details">
+                        <h4>Valor</h4>
+                        <input id="valor1" type="radio" name="valor">
+                           <label for="valor1">Mais de R$ 10.000</label><br/>
+                        <input id="valor2" type="radio" name="valor">
+                           <label for="valor2">R$ 5.000 - R$ 10.000</label><br/>
+                        <input id="valor3" type="radio" name="valor">
+                           <label for="valor3">Menos que R$ 5.000</label>
+                  </div>
+                  <div>
+                        <h4>Peso</h4>
+                        <input id="peso1" type="radio" name="peso">
+                           <label for="peso1">Mais que 20t</label><br/>
+                        <input id="peso2" type="radio" name="peso">
+                           <label for="peso2">Entre 5t e 20t</label><br/>
+                        <input id="peso3" type="radio" name="peso">
+                           <label for="peso3">Menos que 5t</label>
+                  </div>
+                  <div>
+                        <h4>Altura</h4>
+                        <input id="altura1" type="radio" name="altura">
+                           <label for="altura1">Maior que 20m</label><br/>
+                        <input id="altura2" type="radio" name="altura">
+                           <label for="altura2">Entre 5m e 20m</label><br/>
+                        <input id="altura3" type="radio" name="altura">
+                           <label for="altura3">Menor que 5m</label>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="onivoro-container">
+
+            <div class="catalog-onivoro" title="Mais Detalhes">
+               <a href="/detalhe_produto" class="nav__link" data-link>
+                  <div class="img-catalog-onivoro">
+                     <img id="img-onivoro" src="images/oviraptor.jpg" alt=""/>
+                  </div>
+                  <div class="inform-onivoro">
+                     <h3 id="name-pet">OVIRAPTOR</h3>
+                     <h4 id="category-pet">Onivoro</h4>
+                     <h4 id="height-pet">8<span> Metros</span></h4>
+                     <h4 id="price-pet"><span>R$ </span>10.000</h4>
+                  </div>
+               </a>
+            </div>
+         </div>
+
+      </div>
+
+      <footer>Copyright© 2022 PetSauro - Todos os direitos reservados</footer>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+         <script type="text/javascript" src="script.js"></script>    
+   </body>
+</html>

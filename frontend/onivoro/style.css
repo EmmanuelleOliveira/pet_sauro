@@ -22,7 +22,7 @@ body {
   font-family: roboto, serif;
 }
 
-/* ///-----HEADER----\\\\ */
+/* ///-----INDEX PRINCIPAL - TODAS AS PÁGINAS----\\\\ */
 .header {
   overflow: hidden;
   display: flex;
@@ -34,11 +34,6 @@ body {
   background: #fdfdfd;
   border-bottom: 0.8px solid #95a5a6;
   padding: 20px 10px;
-}
-
-main {
-  margin-top: 80px;
-  color: white;
 }
 
 header:hover {
@@ -126,118 +121,115 @@ ul li a {
   display: flex;
 }
 
-/* ///------MAIN----\\\\ */
-
-.detalhe-produto {
-  display: flex;
-  justify-content: space-around;
-  border: 0.5px solid #95A5A6;
-  border-radius: 5px;
-  width: 85vw;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1rem 1rem 1rem 1rem;
-}
-
-.img-produto img {
-  border-radius: 5px;
-}
-
-#detalhe-img {
-  width: 25vw;
-  height: 60vh;
-}
-
-.infor-detalhe {
-  width: 25vw;
-  height: 60vh;
-}
-
-ul li {
-  margin-bottom: 2rem;
-}
-
-#price-pet {
-  margin-bottom: 2rem;
-}
-#id-pet {
+h2 {
+  color: #7728ab;
+  /* text-align: center; */
+  margin-top: 15px;
   font-size: 18px;
-  font-weight: bold;
+}
+#img-page-onivoro img {
+  width: 9vw;
 }
 
-li {
-  font-size: 15px;
+/* *, :after, :before {
+    box-sizing: border-box;
+  } */
+
+.onivoro-container {
+  /* background-color: blue; */
+  display: flex;
+  /* width: 78.5vw; */
+  margin-top: 30px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border: 0.1rem solid #d3d9de;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 8%);
+  border-radius: 0.4rem;
+  padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+  margin-right: 2%;
+  margin-bottom: 2rem;
 }
 
-#price-pet {
-  font-size: 20px;
-  color:#6b1d9e;
-  text-align: center;
-  border-bottom: 2px solid #6b1d9e;
-  float: right;
+.catalog-onivoro {
+  min-height: 300px;
+  /* display: inline-block; */
+  border: 0.1rem solid #d3d9de;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 8%);
+  border-radius: 0.4rem;
+  padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+  margin-right: 2%;
+  margin-bottom: 3rem;
+  /* width: 20%; */
 }
-
-.pgto-produto{
-  margin-top: 1.6rem;
-  height: 50vh;
-  border-left: 2px solid #6b1d9e; 
-  margin-left: -20px;     
-}
-
-button {
-  width: 20vw;
-  height: 8vh;
-  border-radius: 5px;
-  border: none;
+.catalog-onivoro:hover {
   cursor: pointer;
-  margin-left: 30px;  
 }
-.pgto-produto div {
-  /* border-bottom: 1px solid #6b1d9e; */
-  margin-top: 20px;
+
+.img-catalog-onivoro img {
+  display: inline-block;
+  border-radius: 50%;
+  width: 160px;
+  height: 150px;
+  margin-bottom: 25px;
+  /* margin-left: 25px; */
+}
+.inform-onivoro {
+  text-align: center;
+}
+
+h3,
+h4 {
+  color: #7728ab;
+}
+
+h4 {
+  margin-left: 20px;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.btn-filtro button {
+  border-radius: 5px;
+  width: 100%;
+  height: 5vh;
+  color: #7728ab;
+  cursor: pointer;
+  border: none;
+}
+.filtro-container {
+  /* background-color: red; */
+  width: 18vw;
+  /* height: 58vh; */
+  float: left;
+  margin-top: 30px;
+  border: 0.1rem solid #d3d9de;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 8%);
+  border-radius: 0.4rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  margin-right: 2%;
+  margin-bottom: 2rem;
+}
+
+.filtro {
   margin-left: 10px;
 }
-#shopping-cart {
-  background-color: #6b1d9e;
-  color: #fdfdfd;
-  font-weight: bold;
-  margin-left: 20px;
-  border-bottom: 1px solid #6b1d9e;  
-}
-#finalize-purchase {
-  background-color:#d605a2;
-  color:#fdfdfd;
-  font-weight: bold;
-  margin-left: 20px;
-  border-bottom: 1px solid #6b1d9e; 
-}
-
-.pgto-produto button{
-  margin-bottom: 3rem;  
-}
-
-#return { 
-  background-color: #95A5A6;
-  width: 15vw;
-  height: 8vh;
-  border-radius: 5px;
-  border: none;
-  margin-left: 3.3rem;
-  margin-right: auto;
-  color:#fdfdfd;
-  font-weight: bold;
-}
 
 
-/* ///-----FOOTER-----\\\ */
-footer {
-  display: block;
-  position: fixed;
-  width: 100%;
-  bottom: 0vh;
-  left: 0;
+/* ///-----FOOTER TODAS PÁGINAS-----\\\ */
+footer{
+  display:block;
+  position:fixed;
+  width:100%;
+  bottom:0vh;
+  left:0;
   background: #fdfdfd;
-  text-align: center;
+  text-align:center;
   padding: 8px 0;
-  border-top: 0.5px solid #95a5a6;
+  border-top: 0.5px solid #95A5A6;
+}
+
+main{
+  margin-top:80px;
+  color:white;
 }

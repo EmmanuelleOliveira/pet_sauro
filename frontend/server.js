@@ -8,5 +8,12 @@ app.use('/cadastro', express.static('cadastro'));
 app.use('/', express.static('assets'));
 app.use('/inicial', express.static('inicial'));
 app.use('/detalhe', express.static('detalhe'));
+app.use('/carrinho', express.static('carrinho'));
+app.use('/carnivoro', express.static('carnivoro'));
+app.use('/herbivoro', express.static('herbivoro'));
+app.use('/onivoro', express.static('onivoro'));
+app.use('/promocao', express.static('promocao'));
+
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
