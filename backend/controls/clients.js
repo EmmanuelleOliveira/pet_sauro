@@ -8,7 +8,7 @@ const router = express.Router();
 //http://localhost:3000/clients/
 router.get('/', authorizationUser, async (req, res) => {
     const client = await getClient();
-    const users = await client.query('SELECT clients.email FROM public.clients');
+    const users = await client.query('SELECT * FROM public.clients');
     await client.end();
     res.json(users.rows); 
 });

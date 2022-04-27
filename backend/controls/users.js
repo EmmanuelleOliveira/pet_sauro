@@ -5,7 +5,7 @@ const router = express.Router();
 //http://localhost:3333
 router.get('/', authorization, async (req, res) => {
     const client = await getClient();
-    const users = await client.query('SELECT users.username FROM public.users');
+    const users = await client.query('SELECT users.username, users.password FROM public.users');
     await client.end();
     res.json(users.rows); 
 });

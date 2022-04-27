@@ -5,7 +5,8 @@ const port =  Number(process.env.SERVER_PORT);
 
 app.use('/login', express.static('login'));
 app.use('/cadastro', express.static('cadastro'));
-app.use('/', express.static('assets'));
+app.use('/', express.static('source'));
+
 
 app.use('/inicial', express.static('inicial'));
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,7 +14,7 @@
 
          <div class="logo-name">
             <a href="/inicial" class="nav__link" data-link>
-               <img id="name-logo" id="logo-petsauro" src="images/logo-purple.png" alt="" title="Página Inicial"/>
+               <img id="name-logo" id="logo-petsauro" src="../assets/images/logo-purple.svg" alt="" title="Página Inicial"/>
             </a>
          </div>
 
@@ -23,12 +23,13 @@
          </div>
 
          <div class="requests">
-            <a href="/acompanhar_pedido" class="nav__link" data-link><span id="pedido"><img src="images/request.png" title="Status do Pedido"/></a>
+            <a href="/acompanhar_pedido" class="nav__link" data-link><span id="pedido"><img src="../assets/images/request.png" title="Status do Pedido"/></a>
             <a href="/pedido" class="nav__link" data-link>Meus Pedidos</span></a>
          </div>
          
          <div class="shopping-cart">
-            <a href="/carrinho" class="nav__link" data-link><span id="carrinho"><img src="images/carrinho.png" title="Ver Meu Carrinho"/></span></a>
+            <!-- <a href="/carrinho" class="nav__link" data-link><span id="carrinho"><img src="images/carrinho.png" title="Ver Meu Carrinho"/></span></a> -->
+            <img id="carrinho" src="../assets/images/carrinho.png" title="Ver Meu Carrinho" onclick="showShopCart()"/>
             <span id="quant-iten">0</span>
          </div>
 
@@ -76,28 +77,52 @@
       
          <div class="carrossel">
             <div class="container-carrossel" id="img-carrossel">
-            <img class="img-carrossel" id="dino-4" src="images/dino-4.jpg" alt=""/>
-            <img class="img-carrossel" id= "dino-5" src="images/dino-5.jpg" alt=""/>
-            <img class="img-carrossel" id="dino-6" src="images/dino-6.jpg" alt=""/>
+            <img class="img-carrossel" id="dino-4" src="../assets/images/dino-4.jpg" alt=""/>
+            <img class="img-carrossel" id= "dino-5" src="../assets/images/dino-5.jpg" alt=""/>
+            <img class="img-carrossel" id="dino-6" src="../assets/images/dino-6.jpg" alt=""/>
             </div>
          </div>
          <h2> DinoPet Mais Procurados</h2>
+         <section style="display: none; position: fixed; top: 0; left: 0; z-index: 1000; width: 100vw; height: 100vh; justify-content: center; align-items: center;" id="modal-test">
+            <div style = "background-color: yellow; width: 50vw; height: 50vh;">
+               <p id="modal-pet-name"></p>
+               <p id="modal-pet-price"></p>
+               <label for="modal-quantity">Quantidade</label>
+               <input type="number" id="modal-quantity" min="1" step="1">
+               <input type="hidden" id="price-hidden">
+               <input type="hidden" id="pet-id">
+               <p id="modal-pet-total"></p>
+               <button type="button" id="modal-cancel" onclick="cancelPet()">Cancelar</button>
+               <button type="button" id="modal-add" onclick="addPet()">Adicionar</button>
+            </div>
+         </section>
+         <section style="display: none; position: fixed; top: 0; left: 0; z-index: 1000; width: 100vw; height: 100vh; justify-content: center; align-items: center;" id="modal-buy">
+            <div style = "background-color: yellow; width: 50vw; height: 50vh;">
+               <div>
+                  <table id="table-itens"></table>
+                  <div id="total"></div>
+               </div>
+               <div id="table-payment">
+                  <select name="payment-type" id="payment-select">
+                     <option value="0">Forma de pagamento</option>
+                     <option value="1">Pix</option>
+                     <option value="2">Boleto</option>
+                     <option value="3">Crédito</option>
+                  </select>
+                  <select name="payment-quantity" id="quantity-select" style="display: none;">
+                     <option value="0">Número de parcelas</option>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">4</option>
+                  </select>
+               </div>
+               <button type="button" id="modal-cancel-buy" onclick="cancelBuy()">Cancelar</button>
+               <button type="button" id="modal-add-buy" onclick="addBuy()">Adicionar</button>
+            </div>
+         </section>
    
          <div class="page-init-container">
    
-            <div class="catalog-page-init" title="Mais Detalhes">
-               <a href="/detalhe_produto" class="nav__link" data-link>
-                  <div class="img-catalog-page-init">
-                     <img id="img-page-init" src="images/filhotes.jpg"  alt=""/>
-                  </div>
-                  <div class="inform-pet-init">
-                     <h3 id="name-pet">TIRANOSSAURO REX</h3>
-                     <h4 id="category-pet">Carnívoro</h4>
-                     <h4 id="height-pet">8<span> Metros</span></h4>
-                     <h4 id="price-pet"><span>R$ </span>10.000</h4>
-                  </div>
-               </a>
-            </div>
             <!-- <div class="catalog-page-init">
                <div class="img-catalog-page-init">
                   <img class="img-page-init" src="./assets/images/rex-filhote.jpg" alt=""/>
