@@ -4,28 +4,77 @@ const authorization = require('../middlewares/authorization_client');
 const router = express.Router();
 //http://localhost:3000
 router.get('/', async (req, res) => {
+    const newSale = [];
     const client = await getClient();
-    const users = await client.query('SELECT s.id AS id_vendas, s.value AS valor, s.client_id AS id_cliente, d.value AS valor_parcela, d.status AS situacao, d.due_date AS data_vencimento, d.payment_type_id AS forma_pagamento, i.price AS preco_item, i.quantity AS quantidade_itens, i.pet_id AS id_pet FROM public.sales AS s INNER JOIN public.debts AS d ON s.id = d.sale_id INNER JOIN public.itens AS i ON s.id=i.sale_id'); 
-    /* const users = await client.query(
-        `SELECT row_to_json(sales)
-        FROM (
-            SELECT
-                sales.*,
-                (
-                    SELECT json_agg(nested_itens)
-                    FROM (
-                        SELECT
-                        itens.id
-                        FROM itens
-                        where itens.sales_id = sales.id
-                    ) AS nested_itens
-                ) AS itens
-                FROM sales
-            ) AS sales;
-    `); */
-    await client.end();
-    res.json(users.rows); 
+    //const users = await client.query('SELECT s.id AS id_vendas, s.value AS valor, s.client_id AS id_cliente, d.value AS valor_parcela, d.status AS situacao, d.due_date AS data_vencimento, d.payment_type_id AS forma_pagamento, i.price AS preco_item, i.quantity AS quantidade_itens, i.pet_id AS id_pet FROM public.sales AS s INNER JOIN public.debts AS d ON s.id = d.sale_id INNER JOIN public.itens AS i ON s.id=i.sale_id'); 
+    const usersItens = await client.query('SELECT s.id AS id_vendas, s.value AS valor, s.client_id AS id_cliente, i.price AS preco_item, i.quantity AS quantidade_itens, i.pet_id AS id_pet FROM public.sales AS s INNER JOIN public.itens AS i ON s.id = i.sale_id'); 
+    const usersDebts = await client.query('SELECT s.id AS id_vendas, s.value AS valor, s.client_id AS id_cliente, d.value AS valor_parcela, d.status AS situacao, d.due_date AS data_vencimento, d.payment_type_id AS forma_pagamento FROM public.sales AS s INNER JOIN public.debts AS d ON s.id = d.sale_id');
+    await client.end(); 
+    console.log("Itens", usersItens.rows)
+    console.log("Parcelas", usersDebts.rows)
+    for (let i = 0; i < usersItens.rows.length; i++){
+        console.log("Info", usersItens.rows[i])
+        const index = getIndexSale(usersItens.rows[i].id_vendas, newSale); //Retorna o índice -1 se não existir a venda no vetor newSale ou o índice se existir
+        if (index < 0) {
+            newSale.push(
+                {
+                    "id_vendas": usersItens.rows[i].id_vendas,
+                    "valor": usersItens.rows[i].valor,
+                    "id_client": usersItens.rows[i].id_client,
+                    "itens": [
+                        {
+                            "preco_item": usersItens.rows[i].preco_item,
+                            "quantidade_itens": usersItens.rows[i].quantidade_itens,
+                            "id_pet": usersItens.rows[i].id_pet
+                        }
+                    ],
+                    "debts":[]
+                }
+            )
+        } else {
+            newSale[index].itens.push(
+                {
+                    "preco_item": usersItens.rows[i].preco_item,
+                    "quantidade_itens": usersItens.rows[i].quantidade_itens,
+                    "id_pet": usersItens.rows[i].id_pet
+                }
+            )
+        }
+    }
+    for (let i = 0; i < usersDebts.rows.length; i++){
+        const index = getIndexSale(usersDebts.rows[i].id_vendas, newSale); //Retorna o índice -1 se não existir a venda no vetor newSale ou o índice se existir
+        newSale[index].debts.push(
+            {
+                "valor_parcela": usersDebts.rows[i].valor_parcela,
+                "situacao": usersDebts.rows[i].situacao,
+                "forma_pagamento": writePaymentType(usersDebts.rows[i].forma_pagamento)
+            }
+        )
+    }
+    res.json(newSale); 
 });
+
+function writePaymentType(value) {
+    switch (value) {
+        case 1: 
+            return 'Pix';
+        case 2:
+            return 'Boleto';
+        case 3: 
+            return 'Credito';
+        default:
+            return '';
+    }
+}
+
+function getIndexSale(id, vector) {
+    for (let i = 0; i < vector.length; i++) {
+        if(vector[i].id_vendas === id) {
+            return i;
+        }
+    }
+    return -1;
+}
 
 router.post('/', async (req, res) => {
     console.log("chegou aqui sales - 1")

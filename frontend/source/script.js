@@ -232,6 +232,7 @@ function addBuy() {
       }) 
       break;
     case 3: {
+      console.log("ATENÇÃO", modalPayment.value)
       for (let i = 0; i < Number(modalPayment.value); i++){
         debts.push({
           "value": total/Number(modalPayment.value),
