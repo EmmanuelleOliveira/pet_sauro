@@ -184,12 +184,12 @@ function fillTable() {
     <td>${item.name}</td>
     <td>${item.quantity}</td>
     <td>R$ ${item.price}</td>
-    <td id="total-buy">Total R$ ${item.quantity * item.price}</td>
+    <td>R$ ${item.quantity * item.price}</td>
     <td><button type="button" class="btn-remove-itens" onclick='removeItemCar(${index})'><img class="remove" src = "./assets/images/remove.png" alt = ""></button></td>
     </tr>
     `
   }).join("");
-  document.getElementById("total").innerHTML = `R$ ${total}`;
+  document.getElementById("total").innerHTML = `Total da compra: R$ ${total}`;
 }
 
 function removeItemCar(index) {
