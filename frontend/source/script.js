@@ -1,21 +1,3 @@
-//import {htmlLogin} from './index-html/login.js'
-//console.log(htmlLogin)
-//----CARROSSEL ----//
-/* const imagesCarrossel = document.getElementById("img-carrossel");
-const imgCarrossel = document.querySelectorAll("#img-carrossel img");
-
-let idInit = 0;
-function carrossel() {
-  idInit++;
-  if (idInit > imgCarrossel.length - 1) {
-    idInit = 0;
-  }
-  imagesCarrossel.style.transform = `translateX(${-idInit * 1130}px)`;
-}
-setInterval(carrossel, 3000); */
-
-//Carrossel
-
 let slideIndex = 0;
 showSlides();
 
@@ -30,7 +12,6 @@ function showSlides() {
   slides[slideIndex-1].style.display = "block";  
   setTimeout(showSlides, 4000); 
 }
-
 
 const url = "http://localhost:8000";
 
@@ -85,11 +66,11 @@ function renderCardItem(pet, container) {
       <div class="informations-card">
         <h3 class="name-pet">${name}</h3>
         <h4 class="category-pet">${category}</h4>
-        <h4 class="price-pet-old"><span>R$ </span>${price}</h4>
+        <h4 class="price-pet-old"><span>R$</span>${price}</h4>
         <h4 class="price-pet"><span>R$ </span>${price_promo}</h4>
       </div>
       </a>
-      <button type="button" class="btn-buy" onclick="addCar(${id}, '${name}', ${price})">Comprar</button>
+      <button type="button" class="btn-buy" onclick="addCar(${id}, '${name}', ${price_promo}, '${description}', ${weight}, ${height})">Comprar</button>
   </div>`;
   } else {
     container.innerHTML +=
@@ -102,7 +83,7 @@ function renderCardItem(pet, container) {
           <h4 class="price-pet-no-promo"><span>R$ </span>${price}</h4>
         </div>
       </a>
-      <button type="button" class="btn-buy" onclick="addCar(${id}, '${name}', ${price})">Comprar</button>
+      <button type="button" class="btn-buy" onclick="addCar(${id}, '${name}', ${price}, '${description}', ${weight}, ${height})">Comprar</button>
   </div>`;
   }
 }
@@ -118,19 +99,25 @@ const modalName = document.getElementById("modal-pet-name");
 const modalPrice = document.getElementById("modal-pet-price");
 const modalQuantity = document.getElementById("modal-quantity");
 const modalTotal = document.getElementById("modal-pet-total");
+const modalDescription = document.getElementById("modal-description");
+const modalWeight = document.getElementById("modal-weight");
+const modalHeight = document.getElementById("modal-height");
 modalQuantity.addEventListener('input', function () {
   const pricePet = Number(priceHidden.value);
   const quantityPet = Number(modalQuantity.value);
-  modalTotal.innerHTML = pricePet * quantityPet;
+  modalTotal.innerHTML = `Total: R$ ${pricePet * quantityPet}`;
 })
 
 const petIdHidden = document.getElementById("pet-id");
 const priceHidden = document.getElementById("price-hidden");
 
-function addCar(petId, petName, petPrice) {
+function addCar(petId, petName, petPrice, petDescription, petWeight, petHeight) {
   modal.style.display = "flex";
-  modalName.innerHTML = petName;
-  modalPrice.innerHTML = petPrice;
+  modalName.innerHTML = `Pet selecionado: ${petName}`;
+  modalPrice.innerHTML = `Preço unitário: R$ ${petPrice}`;
+  modalDescription.innerHTML = `${petDescription}`;
+  modalWeight.innerHTML = `Peso: ${petWeight} Kg`;
+  modalHeight.innerHTML = `Altura: ${petHeight} metros`;
   petIdHidden.value = petId;
   priceHidden.value = petPrice;
 }
@@ -146,10 +133,11 @@ function addPet() {
   const quantityPet = modalQuantity.value;
   const petId = Number(petIdHidden.value);
   const quantityFormat = /^(\+?[1-9]\d*)$/;
+  const namePetCar = (modalName.innerHTML).split(': ');
   if (quantityFormat.test(quantityPet)) {
     const carItem = {
       "pet_id": petId,
-      "name": modalName.innerHTML,
+      "name": namePetCar[1],
       "quantity": quantityPet,
       "price": pricePet
     }
@@ -195,13 +183,13 @@ function fillTable() {
     <tr>
     <td>${item.name}</td>
     <td>${item.quantity}</td>
-    <td>${item.price}</td>
-    <td>${item.quantity * item.price}</td>
-    <td><button type="button" class="btn-remove-itens" onclick='removeItemCar(${index})'>Remover item</button></td>
+    <td>R$ ${item.price}</td>
+    <td id="total-buy">Total R$ ${item.quantity * item.price}</td>
+    <td><button type="button" class="btn-remove-itens" onclick='removeItemCar(${index})'><img class="remove" src = "./assets/images/remove.png" alt = ""></button></td>
     </tr>
     `
   }).join("");
-  document.getElementById("total").innerHTML = `${total}`;
+  document.getElementById("total").innerHTML = `R$ ${total}`;
 }
 
 function removeItemCar(index) {
@@ -325,17 +313,3 @@ function optionsPayments() {
     modalPayment.style.display = "none";
   }
 }
-
-function loginPage() {
-  console.log("Estou no login");
-  //document.querySelector('body').innerHTML = `${htmlLogin}` 
-}
-
-function soma() {
-  console.log(2+1)
-}
-
-soma()
-
-
-//Fazer Validações

@@ -9,70 +9,7 @@
    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
    <title>PetSauro</title>
 </head>
-
 <body>
-   <!--   <header class="header-container">      
-      <nav class="header">
-
-         <div class="logo-name">
-            <a href="/inicial" class="nav__link" data-link>
-               <img id="name-logo" id="logo-petsauro" src="../assets/images/logo-purple.svg" alt="" title="Página Inicial"/>
-            </a>
-         </div>
-
-         <div class="search" class="nav__link" data-link>
-            <input id="busca" placeholder="Pesquisar" type="text" />
-         </div>
-
-         <div class="requests">
-            <a href="/acompanhar_pedido" class="nav__link" data-link><span id="pedido"><img src="../assets/images/request.png" title="Status do Pedido"/></a>
-            <a href="/pedido" class="nav__link" data-link>Meus Pedidos</span></a>
-         </div>
-         
-         <div class="shopping-cart"> -->
-   <!-- <a href="/carrinho" class="nav__link" data-link><span id="carrinho"><img src="images/carrinho.png" title="Ver Meu Carrinho"/></span></a> -->
-   <!--             <img id="carrinho" src="../assets/images/carrinho.png" title="Ver Meu Carrinho" onclick="showShopCart()"/>
-            <span id="quant-iten">0</span>
-         </div>
-
-         <div class="register">
-            <span id="login"><a href="/login" class="nav__link" data-link>Entrar</a></span>
-            <span>|</span>
-            <a href="/cadastro" class="nav__link" data-link><span id="cadastro">Cadastro</span></a>
-         </div>
-
-         <div class="stoped">
-            <span id="sair"><a href="http://www.google.com/search">Sair</a></span>
-         </div>
-
-      </nav>
-   </header>
-
-      <main class=" header-2">
-         <nav>
-
-            <ul class="nav-menu">
-
-               <li class="page-menu">
-                 <a href="/inicial" class="nav__link" data-link>Página Inicial</a>
-               </li>
-               <li class="page-menu">
-                 <a href="/carnivoro" class="nav__link" data-link>Carnívoro</a>
-               </li>
-               <li class="page-menu">
-                 <a href="/herbivoro" class="nav__link" data-link>Herbívoro</a>
-               </li>
-               <li class="page-menu">
-                 <a href="/onivoro" class="nav__link" data-link>Onívoro</a>
-               </li>
-               <li class="page-menu">
-                 <a href="/promocao" class="nav__link" data-link>Promoções</a>
-               </li>
-                            
-            </ul>
-
-         </nav>
-      </main> -->
    <header>
       <a href="/" class="nav__link" data-link>
          <img id="logo-petsauro" src="../assets/images/logo-purple.svg">
@@ -89,9 +26,6 @@
          </div>
       </div>
    </header>
-   <!-- <img id="logo-index" src="./assets/images/logo.png" alt="" />       -->
-   <!-- <div id="spa-page-container"> -->
-   <!-- ---- SPA PAGINA INICIAL ---- -->
    <main>
       <div class="slideshow-container">
 
@@ -108,43 +42,31 @@
          </div>
 
       </div>
-
-      <div style="text-align:center">
-         <span class="dot"></span>
-         <span class="dot"></span>
-         <span class="dot"></span>
-      </div>
-      <!-- <div id="lazyload-carrossel">
-         <div class="container-carrossel" id="img-carrossel">
-            <img class="img-carrossel" id="dino-4" src="../assets/images/banner-1m.png" alt="" />
-            <img class="img-carrossel" id="dino-5" src="../assets/images/banner-2m.png" alt="" />
-            <img class="img-carrossel" id="dino-6" src="../assets/images/banner-3.png" alt="" />
-         </div>
-      </div> -->
       <div id="title">
          <h2>PetSauros disponíveis</h2>
       </div>
-      <section
-         style="display: none; position: fixed; top: 0; left: 0; z-index: 1000; width: 100vw; height: 100vh; justify-content: center; align-items: center;"
-         id="modal-test">
-         <div style="background-color: yellow; width: 50vw; height: 50vh;">
-            <p id="modal-pet-name"></p>
-            <p id="modal-pet-price"></p>
+      <section id="modal-test">
+         <div id="modal-test-card">
+            <div id="modal-pet-name"></div>
+            <div id="modal-pet-price"></div>
             <label for="modal-quantity">Quantidade</label>
             <input type="number" id="modal-quantity" min="1" step="1">
             <input type="hidden" id="price-hidden">
             <input type="hidden" id="pet-id">
-            <p id="modal-pet-total"></p>
+            <div id="modal-pet-total"></div>
+            <div id="modal-description"></div>
+            <div id="modal-weight"></div>
+            <div id="modal-height"></div>
             <button type="button" id="modal-cancel" onclick="cancelPet()">Cancelar</button>
             <button type="button" id="modal-add" onclick="addPet()">Adicionar</button>
          </div>
       </section>
-      <section
-         style="display: none; position: fixed; top: 0; left: 0; z-index: 1000; width: 100vw; height: 100vh; justify-content: center; align-items: center;"
-         id="modal-buy">
-         <div style="background-color: yellow; width: 50vw; height: 50vh;">
+      <section id="modal-buy">
+         <div id="modal-buy-card">
             <div>
-               <table id="table-itens"></table>
+               <b id="text-my-shopping-cart">Meu carrinho</b>
+               <table id="table-itens">
+               </table>
                <div id="total"></div>
             </div>
             <div id="table-payment">
@@ -162,12 +84,11 @@
                </select>
             </div>
             <button type="button" id="modal-cancel-buy" onclick="cancelBuy()">Cancelar</button>
-            <button type="button" id="modal-add-buy" onclick="addBuy()">Adicionar</button>
+            <button type="button" id="modal-add-buy" onclick="addBuy()">Comprar</button>
          </div>
       </section>
       <div id="products"></div>
    </main>
-
    <footer>
       <div id="footer-left">
          <p>PetSauro Comércio de Animais S.A</p>
@@ -183,5 +104,4 @@
    <script src="../spa-biblioteca.js"></script>
    <script type="text/javascript" src="script.js"></script>
 </body>
-
 </html>
