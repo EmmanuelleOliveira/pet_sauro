@@ -30,13 +30,13 @@
         });
     }
 }) */
-const url = "http://localhost:3000";
+const url = "http://localhost:8000";
 
-function mask (i){
+function mask(i) {
     var v = i.value;
-    if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
-       i.value = v.substring(0, v.length-1);
-       return;
+    if (isNaN(v[v.length - 1])) { // impede entrar outro caractere que não seja número
+        i.value = v.substring(0, v.length - 1);
+        return;
     }
     i.setAttribute("maxlength", "14");
     if (v.length == 3 || v.length == 7) i.value += ".";
@@ -59,8 +59,8 @@ function registerUser() {
     let testCpf = cpfFormat.test(cpf);
     let testEmail = emailFormat.test(email);
     let testPassword = passwordFormat.test(password);
-    if (secondPassword === password){
-        if (testName === true && testCpf === true && testEmail === true && testPassword === true){
+    if (secondPassword === password) {
+        if (testName === true && testCpf === true && testEmail === true && testPassword === true) {
             document.getElementById("incorrect-data").innerHTML = "";
             fetch(`${url}/clients`, {
                 method: "POST",
@@ -76,27 +76,30 @@ function registerUser() {
                     cpf: cpf,
                     email: email,
                     password: password
-                }) 
+                })
             })
-            .then(function (response) {
-                if (response.status !== 200) {
-                    console.log("Verificar problema. STATUS:" + response.status);
-                    response.text().then(function (data) {
-                        document.getElementById("incorrect-data").innerHTML = `${data}`;
-                    });
-                }
-                response.json().then(function (data) {
-                console.log(data);
+                .then(function (response) {
+                    if (response.status !== 200) {
+                        console.log("Verificar problema. STATUS:" + response.status);
+                        response.text().then(function (data) {
+                            document.getElementById("incorrect-data").innerHTML = `${data}`;
+                        });
+                    }
+                    else {
+                        response.json().then(function (data) {
+                            document.getElementById("btn-register").style.display = "none";
+                            document.getElementById("btn-login").style.display = "block";
+                            console.log(data);
+                        });
+                    }
+                })
+                .catch(function (err) {
+                    console.log("Verificar ERRO:" + err);
                 });
-            })
-            .catch(function (err) {
-                console.log("Verificar ERRO:" + err);
-            });
         } else {
             document.getElementById("incorrect-data").innerHTML = "Dados inseridos incorretamente";
         }
     } else {
         document.getElementById("incorrect-data").innerHTML = "As senhas não correspondem";
-    } 
+    }
 }
-        

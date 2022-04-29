@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="/views/inicial/style.css">
+<header>
+    <a href="/inicial" class="nav__link" data-link>
+       <img id="logo-petsauro" src="/assets/images/logo-purple.svg">
+    </a>
+    <div id="header-left">
+       <div id="shopping-cart" onclick="controller.showShopCart()">
+          <img id="img-shopping-cart" src="/assets/images/shopping-cart.png" alt="">
+          <div id="number"></div>
+       </div>
+       <div id="client-id">
+          <div class="menu-logged-out">
+            <a href="/login" class="nav__link" data-link id="login">Entrar</a>
+            <span>|</span>
+            <a id="register" href="/cadastro" class="nav__link" data-link>Cadastrar</a>
+          </div>
+
+          <div class="menu-logged-in">
+            <span id="menu-logged-in-name">NOME</span>
+            <span>|</span>
+            <a id="logout" href="/inicial" class="nav__link" data-link>Sair</a>
+          </div>
+       </div>
+    </div>
+ </header>
+ <main>
+    <div class="slideshow-container">
+
+       <div class="mySlides fade">
+          <img src="/assets/images/banner-1.png" style="width:100%">
+       </div>
+
+       <div class="mySlides fade">
+          <img src="/assets/images/banner-2.png" style="width:100%">
+       </div>
+
+       <div class="mySlides fade">
+          <img src="/assets/images/banner-3.png" style="width:100%">
+       </div>
+
+    </div>
+    <div id="title">
+       <h2>PetSauros disponíveis</h2>
+    </div>
+    <section id="modal-test">
+       <div id="modal-test-card">
+          <div id="modal-pet-name"></div>
+          <div id="modal-pet-price"></div>
+          <label for="modal-quantity">Quantidade</label>
+          <input type="number" id="modal-quantity" min="1" step="1">
+          <input type="hidden" id="price-hidden">
+          <input type="hidden" id="pet-id">
+          <div id="modal-pet-total"></div>
+          <div id="modal-description"></div>
+          <div id="modal-weight"></div>
+          <div id="modal-height"></div>
+          <button type="button" id="modal-cancel" onclick="controller.cancelPet()">Cancelar</button>
+          <button type="button" id="modal-add" onclick="controller.addPet()">Adicionar</button>
+       </div>
+    </section>
+    <section id="modal-buy">
+       <div id="modal-buy-card">
+          <div>
+             <b id="text-my-shopping-cart">Meu carrinho</b>
+             <table id="table-itens">
+             </table>
+             <div id="total"></div>
+          </div>
+          <p id="error-message"></p>
+          <div id="table-payment">
+             <select name="payment-type" id="payment-select">
+                <option value="0">Forma de pagamento</option>
+                <option value="1">Pix</option>
+                <option value="2">Boleto</option>
+                <option value="3">Crédito</option>
+             </select>
+             <select name="payment-quantity" id="quantity-select" style="display: none;">
+                <option value="0">Número de parcelas</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="4">4</option>
+             </select>
+          </div>
+          <button type="button" id="modal-cancel-buy" onclick="controller.cancelBuy()">Cancelar</button>
+          <button type="button" id="modal-add-buy" onclick="controller.addBuy()">Comprar</button>
+       </div>
+    </section>
+    <div id="products"></div>
+ </main>
+ <footer>
+    <div id="footer-left">
+       <p>PetSauro Comércio de Animais S.A</p>
+       <p>Copyright© 2022 PetSauro - Todos os direitos reservados</p>
+    </div>
+    <div id="footer-right">
+       <p>Compra segura - A PetSauro garante segurança para suas informações pessoais e financeiras</p>
+    </div>
+ </footer>
+ <script src="/services/menu.js"></script>
+ <script type="text/javascript" src="/views/inicial/script.js"></script>

@@ -1,8 +1,18 @@
 const express = require('express');
 const {getClient} = require('../utils/client_pg');
-const authorization = require('../middlewares/authorization_client');
+const authorization_client = require('../middlewares/authorization_client');
+const authorization_users = require('../middlewares/authorization_users');
 const router = express.Router();
 //http://localhost:3000
+router.get('/admin', authorization_users, async (req, res) => {
+    const client = await getClient();
+
+    const queryResponse = await client.query("SELECT sales.created_at, sales.value, name, email, description FROM sales JOIN clients ON sales.client_id = clients.id JOIN debts ON sales.id = debts.sale_id JOIN payment_types ON debts.payment_type_id = payment_types.id");
+    await client.end();
+
+    res.json(queryResponse.rows);
+})
+
 router.get('/', async (req, res) => {
     const newSale = [];
     const client = await getClient();
@@ -76,11 +86,10 @@ function getIndexSale(id, vector) {
     return -1;
 }
 
-router.post('/', async (req, res) => {
+router.post('/', authorization_client, async (req, res) => {
     console.log("chegou aqui sales - 1")
     const {itens, debts} = req.body;
-    //const client_id = req.clientId;
-    const client_id = 1;
+    const client_id = req.clientId;
     console.log("chegou aqui sales - 2", itens, debts, client_id)
     let value = 0;
     for(let i = 0; i < itens.length; i++){

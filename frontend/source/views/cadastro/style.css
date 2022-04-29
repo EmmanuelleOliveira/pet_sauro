@@ -180,6 +180,19 @@ input{
    background-color: rgb(119, 0, 178);
    cursor: pointer;
 }
+#btn-login{
+   width: 100%;
+   height: var(--heigth-btn-register);
+   background-color: var(--background-btn-register);
+   color: var(--text-color-btn-register);
+   border: none;
+   border-radius: 5px;
+   font-weight: bold;
+}
+#btn-login:hover{
+   background-color: rgb(119, 0, 178);
+   cursor: pointer;
+}
 #btn-back{
    width: 100%;
    height: var(--heigth-btn-back);
@@ -244,4 +257,8 @@ input:focus{
 }
 #privacity-terms span{
    text-decoration: underline;
+}
+
+#btn-login {
+   display: none;
 }

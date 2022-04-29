@@ -1,45 +1,30 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <title>PetSauro</title>
-</head>
-<body>
-    <header>
-        <a href="/" class="nav__link" data-link><img id="logo-petsauro" src="./images/logo-purple.png"></a>
-    </header>
-    <main>
-        <div id="form-register">
-            <div id="inputs-form-register">
-                <div id="incorrect-data"></div>
-                <input id="name" type="text" placeholder="Digite seu nome* ">
-                <input id="email" type="email" placeholder="Digite seu email* ">
-                <input id="cpf" type="text" placeholder="Digite seu CPF* " oninput="mask(this)">
-                <div class="password-field">
-                    <input id="password" type="password" placeholder="Digite sua senha* ">
-                </div>
-                <div class="password-field">
-                    <input id="second-password" type="password" placeholder="Confirme sua senha* ">
-                </div>
-                <div id="privacity-terms"><p> Ao criar uma conta, você concorda com os <span> <a href="">Termos e Condições de Uso</a></span> da Petsauro. 
-                  Para saber como tratamos os seus dados pessoais, acesse o nosso <span><a href="">Aviso de Privacidade</a></span>.</p></div>
-                <button type="button" id="btn-register" onclick="registerUser()">Cadastrar</button>
-                <a href="/" class="nav__link" id="btn-back" data-link>Voltar</a>
+<link rel="stylesheet" href="/views/cadastro/style.css">
+<header>
+    <a href="/inicial" class="nav__link" data-link><img id="logo-petsauro" src="./images/logo-purple.png"></a>
+</header>
+<main>
+    <div id="form-register">
+        <div id="inputs-form-register">
+            <div id="incorrect-data"></div>
+            <input id="name" type="text" placeholder="Digite seu nome* ">
+            <input id="email" type="email" placeholder="Digite seu email* ">
+            <input id="cpf" type="text" placeholder="Digite seu CPF* " oninput="mask(this)">
+            <div class="password-field">
+                <input id="password" type="password" placeholder="Digite sua senha* ">
             </div>
-            <div id="welcome-register">
-                <h3 id="welcome-message">Olá! Seja bem vindo ao Petsauro!</h3>
-                <img id="welcome-image" src="./images/logosauro.png" alt="">
+            <div class="password-field">
+                <input id="second-password" type="password" placeholder="Confirme sua senha* ">
             </div>
+            <div id="privacity-terms"><p> Ao criar uma conta, você concorda com os <span> <a href="">Termos e Condições de Uso</a></span> da Petsauro. 
+              Para saber como tratamos os seus dados pessoais, acesse o nosso <span><a href="">Aviso de Privacidade</a></span>.</p></div>
+            <button type="button" id="btn-register" onclick="registerUser()">Cadastrar</button>
+            <button id="btn-login" type="button" data-link href="/login">Cadastro finalizado. Ir para Login</button>
+            <a href="/inicial" class="nav__link" id="btn-back" data-link>Voltar</a>
         </div>
-    </main>
-    <!-- <footer>
-
-   </footer> -->
-    <script src="script.js"></script>
-</body>
-</html>
-
+        <div id="welcome-register">
+            <h3 id="welcome-message">Olá! Seja bem vindo ao Petsauro!</h3>
+            <img id="welcome-image" src="./images/logosauro.png" alt="">
+        </div>
+    </div>
+</main>
+<script src="/views/cadastro/script.js"></script>

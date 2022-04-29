@@ -77,7 +77,10 @@ app.post('/login', async (req,res) => {
             const token = await jwt.sign({clientId: users.rows[0].id, clientEmail: users.rows[0].email},tokenPassword);
             console.log(token)
             res.cookie("token", token); //como se fosse uma propriedade do objeto passa o nome e o valor
-            res.json({});
+            res.json({
+                admin: false,
+                name: users.rows[0].name
+            });
         }
     } else {
         const client = await getClient(); 
@@ -89,7 +92,10 @@ app.post('/login', async (req,res) => {
         } else {
             const token = await jwt.sign({userId: users.rows[0].id, username: users.rows[0].username},tokenPassword);
             res.cookie("token", token); //como se fosse uma propriedade do objeto passa o nome e o valor
-            res.json({});
+            res.json({
+                admin: true,
+                name: users.rows[0].username
+            });
         }
     }
 }); 
