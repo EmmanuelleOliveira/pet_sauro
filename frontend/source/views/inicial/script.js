@@ -5,6 +5,7 @@ declareController(class {
   onLoad(data) {
     // data === undefined ou data === {algum usuário aqui}
     // se data não for undefined ({.name .admin}), mudar o header
+    this.checkCar();
 
     let slideIndex = 0;
 
@@ -125,7 +126,6 @@ declareController(class {
     this.modalBuy = document.getElementById("modal-buy");
     this.modalPayment = document.getElementById("quantity-select");
 
-
     document.getElementById("payment-select").addEventListener("change", () => {
       let optionChoosed = Number(document.getElementById("payment-select").value);
       if (optionChoosed === 0) {
@@ -177,8 +177,19 @@ declareController(class {
       carLocalStorage.push(carItem);
       this.setCar(carLocalStorage);
       this.modal.style.display = "none";
+      this.checkCar();
     } else {
       alert("Formato do campo de quantidade está incorreto");
+    }
+  }
+
+  checkCar() {
+    const shoppingCart = this.getCar();
+    if (shoppingCart.length === 0) {
+      document.getElementById("number-itens").innerHTML = "";
+    } else {
+      let quantityItensCart = this.totalItens(shoppingCart);
+      document.getElementById("number-itens").innerHTML = `${quantityItensCart}`;
     }
   }
 
@@ -228,6 +239,7 @@ declareController(class {
     car.splice(index, 1);
     this.setCar(car);
     this.fillTable();
+    this.checkCar();
   }
 
   clearTable() {
@@ -250,6 +262,14 @@ declareController(class {
       value += (itens[i].price * itens[i].quantity);
     }
     return value;
+  }
+
+  totalItens(itens){
+    let quantityItens = 0;
+    for (let i = 0; i < itens.length; i++) {
+      quantityItens += Number(itens[i].quantity);
+    }
+    return quantityItens;
   }
 
   addBuy() {
@@ -302,10 +322,11 @@ declareController(class {
     }
     const user = localStorage.getItem("user")
     if (!user) {
-      document.getElementById("error-message").innerText = "Você está precisa estar logado";
+      document.getElementById("error-message").innerText = "Você precisa fazer o login para finalizar a compra";
       return;
     }
     this.clearCar();
+    this.checkCar();
     this.cancelBuy();
     fetch(`${this.url}/sales`, {
       method: "POST",
@@ -318,17 +339,18 @@ declareController(class {
       credentials: "include",
       body: JSON.stringify(sale)
     })
-      .then(function (response) {
+      .then((response) => {
         if (response.status !== 200) {
           console.log("Verificar problema. STATUS:" + response.status);
-          response.text().then(function (data) {
+          response.text().then((data) => {
             document.getElementById("incorrect-data").innerHTML = `${data}`;
           });
         }
         else {
-          response.json().then(function (data) { //colocar no console que o cliente tá logado
+          response.json().then((data) => { //colocar no console que o cliente tá logado
             console.log("Chegou aqui - 38")
-            alert("Compra registrada")
+            //alert("Compra registrada")
+            document.getElementById("modal-buy-finished").style.display = "flex";
           });
         }
       })
@@ -338,6 +360,9 @@ declareController(class {
 
   }
 
+  backNavigate(){
+    document.getElementById("modal-buy-finished").style.display = "none";
+  }
 
   optionsPayments() {
     let optionChoosed = Number(document.getElementById("payment-select").value);
@@ -347,8 +372,6 @@ declareController(class {
       this.modalPayment.style.display = "none";
     }
   }
-
-
 
 })
 

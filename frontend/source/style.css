@@ -99,6 +99,7 @@ h2 {
 
 #client-id {
   width: 200px;
+  height: 100%;
   background-color: #f8f8f8;
   display: flex;
   justify-content: center;
@@ -110,6 +111,7 @@ h2 {
   height: 100%;
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 
 #shopping-cart {
@@ -354,7 +356,7 @@ img {vertical-align: middle;}
   to {opacity: 1}
 }
 
-#modal-buy, #modal-test {
+#modal-buy, #modal-test, #modal-buy-finished {
   display: none; 
   position: fixed; 
   top: 0; 
@@ -366,7 +368,7 @@ img {vertical-align: middle;}
   align-items: center;
 }
 
-#modal-buy-card {
+#modal-buy-card, #modal-buy-card-finished{
   display: flex;
   flex-direction: column;
   background-color: #f8f8f8; 
@@ -374,14 +376,13 @@ img {vertical-align: middle;}
   height: 100%;
   padding: 10px;
   color: var(--text-color-body);
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 10px;
+  text-align: center;
   width: 50vw; 
   height: 70vh;
   border: 2px solid #f24783;
   border-radius: 5px;
-  text-align: justify;
 }
 
 #modal-test-card {
@@ -408,7 +409,7 @@ img {vertical-align: middle;}
   text-align: center;
 } 
 
-#modal-cancel, #modal-add, #modal-cancel-buy, #modal-add-buy{
+#modal-cancel, #modal-add, #modal-cancel-buy, #modal-add-buy, #btn-back-inicial-page{
   background-color: var(--background-btn-register);
   color: var(--text-color-btn-register);
   border-radius: 5px;
@@ -417,12 +418,19 @@ img {vertical-align: middle;}
   font-size: 14px;
   font-weight: bold;
   padding: 5px;
-  width: 90%;
+  width: 30%;
 }
 
 #modal-cancel:hover, #modal-add:hover {
   background-color: #f24783;
   cursor: pointer;
+}
+
+#btn-options-modal-buy, #btn-options-card-buy {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 10px;
 }
 
 #table-itens{
@@ -443,27 +451,53 @@ td{
   text-align: center;
 }
 
-#text-my-shopping-cart {
-  margin-bottom: 10px;
-}
-
 #total {
-  text-align: right;
-  margin-top: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 0 35px;
 }
 
-#modal-cancel-buy, #modal-add-buy {
+#modal-cancel-buy, #modal-add-buy, #btn-back-inicial-page {
   background-color: #f24783;
   border-color: #f24783;
 }
 
-#modal-cancel-buy:hover, #modal-add-buy:hover {
+#modal-cancel-buy:hover, #modal-add-buy:hover, #btn-back-inicial-page:hover {
   background-color: var(--background-btn-register);
   border-color: var(--background-btn-register);
   cursor: pointer;
 }
 
 #quantity-select {
-  margin-bottom: 30px;
   width: 50vw;
+}
+
+#menu-logged-in-name, #logout {
+  font-size: 16px;
+}
+
+#admin-controls {
+  background-color: var(--background-btn-register);
+  color: var(--text-color-btn-register);
+  border-radius: 5px;
+  border: none;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px;
+  width: 120px;
+  height: 22px;
+  justify-content: center;
+  align-items: center;
+}
+
+#admin-controls:hover{
+  background-color: #f24783;
+}
+
+#payment-select {
+  font-size: 14px;
+  width: 30%;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
 }
