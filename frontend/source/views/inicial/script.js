@@ -203,8 +203,9 @@ declareController(class {
     localStorage.setItem("car", JSON.stringify(car));
   }
 
-  clearCar() {
-    localStorage.clear();
+  clearCar(item) {
+    console.log(item)
+    localStorage.removeItem("car");
   }
 
   fillTable() {
@@ -325,7 +326,7 @@ declareController(class {
       document.getElementById("error-message").innerText = "Você precisa fazer o login para finalizar a compra";
       return;
     }
-    this.clearCar();
+    this.clearCar(car);
     this.checkCar();
     this.cancelBuy();
     fetch(`${this.url}/sales`, {
