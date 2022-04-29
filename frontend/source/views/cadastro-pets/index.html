@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="/views/cadastro-pets/style.css" />
 <header>
   <a href="/inicial" data-link>
-    <img id="logo-petsauro" src="./assets/images/logo-purple.svg"
-  /></a>
+    <img id="logo-petsauro" src="./assets/images/logo-purple.svg" /></a>
+    <a href="/inicial" class="nav__link" data-link id="btn-back-admin">Voltar</a>
 </header>
 <main>
   <div id="form-register-pets">
@@ -11,27 +11,11 @@
     <div id="inputs-form">
       <div id="inputs-form-informations">
         <input id="name" type="text" placeholder="Nome do dinossauro* " />
-        <input
-          id="pet-weight"
-          type="number"
-          placeholder="Peso em quilogramas (ex = 10000.500)* "
-          min="0.000"
-          step="0.001"
-          max="99999.999"
-        />
-        <input
-          id="pet-height"
-          type="number"
-          placeholder="Altura em metros (ex = 42,50)* "
-          min="0.01"
-          step="0.01"
-          max="99.99"
-        />
-        <input
-          id="description"
-          type="text"
-          placeholder="Descrição do dinossauro*"
-        />
+        <input id="pet-weight" type="number" placeholder="Peso em quilogramas (ex = 10000.500)* " min="0.000"
+          step="0.001" max="99999.999" />
+        <input id="pet-height" type="number" placeholder="Altura em metros (ex = 42,50)* " min="0.01" step="0.01"
+          max="99.99" />
+        <input id="description" type="text" placeholder="Descrição do dinossauro*" />
         <select id="category">
           <option value="0">Categoria</option>
           <option value="1">Carnívoro</option>
@@ -40,21 +24,8 @@
         </select>
       </div>
       <div id="inputs-form-store">
-        <input
-          id="quantity"
-          type="number"
-          placeholder="Quantidade* "
-          min="0"
-          step="1"
-        />
-        <input
-          id="price"
-          type="number"
-          placeholder="Preço (ex = 999.99)* "
-          min="0"
-          step="0.01"
-          max="99999999.99"
-        />
+        <input id="quantity" type="number" placeholder="Quantidade* " min="0" step="1" />
+        <input id="price" type="number" placeholder="Preço (ex = 999.99)* " min="0" step="0.01" max="99999999.99" />
         <input id="source-image" type="text" placeholder="Rota da imagem* " />
         <div id="radio-choose">
           <p id="ask-promo">O item está em promoção?</p>
@@ -67,36 +38,17 @@
             <label class="label-promo" for="promo-no">Não</label>
           </div>
         </div>
-        <input
-          id="price-promo"
-          type="number"
-          placeholder="Preço promocional* "
-          min="0"
-          step="0.01"
-        />
+        <input id="price-promo" type="number" placeholder="Preço promocional* " min="0" step="0.01" />
       </div>
     </div>
     <div id="buttons">
-      <button type="button" class="btn" id="btn-update-pet" onclick="controller.update()">
-        Atualizar
-      </button>
-      <button
-        type="button"
-        class="btn"
-        id="btn-register-pet"
-        onclick="controller.registerPet()"
-      >
+      <button type="button" class="btn" id="btn-register-pet" onclick="controller.registerPet()">
         Cadastrar
       </button>
-      <button
-        type="button"
-        class="btn"
-        id="btn-list-sales"
-        onclick="controller.listSales()"
-      >
+      <button type="button" class="btn" id="btn-list-sales" onclick="controller.listSales()">
         Ver log de compras
       </button>
-     
+
     </div>
     <table id="sales-log-table">
       <thead>
@@ -114,4 +66,5 @@
     </table>
   </div>
 </main>
+<script src="/services/menu.js"></script>
 <script src="/views/cadastro-pets/script.js"></script>

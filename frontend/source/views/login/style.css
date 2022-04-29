@@ -160,15 +160,4 @@ input:focus{
   width: 100%;
 }
 
-#admin-controls {
-  width: 10vw;
-   height: var(--heigth-btn-login);
-   background-color: var(--background-btn-login);
-   color: var(--text-color-btn-login);
-   border-radius: 5px;
-   cursor: pointer;
-}
 
-#admin-controls:hover{
-  background-color: rgb(119, 0, 178);;
-}

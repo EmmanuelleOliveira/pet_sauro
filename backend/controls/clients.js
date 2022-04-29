@@ -5,7 +5,6 @@ const authorizationUser = require('../middlewares/authorization_users')
 const validateBodyClient = require('../middlewares/validate_body_clients');
 const router = express.Router();
 
-//http://localhost:3000/clients/
 router.get('/', authorizationUser, async (req, res) => {
     const client = await getClient();
     const users = await client.query('SELECT * FROM public.clients');
@@ -14,11 +13,9 @@ router.get('/', authorizationUser, async (req, res) => {
 });
 
 router.post('/', validateBodyClient, async (req, res) => {
-    console.log("Chegou aqui no post clients")
     const client = await getClient();
     const verifyEmail = await client.query('SELECT clients.email, clients.id FROM public.clients WHERE email = $1', [req.body.email]);
     const verifyCpf = await client.query('SELECT clients.cpf,clients.id FROM public.clients WHERE cpf = $1', [req.body.cpf]);
-    console.log("Chegou aqui no post clients 2");
     console.log(verifyEmail.rows[0]);
     if(verifyEmail.rows.length === 0) {
         if(verifyCpf.rows.length === 0){

@@ -35,7 +35,7 @@ declareController(class {
     }
 
     registerPet() {
-        console.log(this.verifyPromo)
+        
         let nameRegister = this.namePet.value;
         let weightRegister = this.weight.value;
         let heightRegister = this.height.value;
@@ -44,17 +44,6 @@ declareController(class {
         let quantityRegister = this.quantity.value;
         let priceRegister = this.price.value;
         let routeImageRegister = this.routeImage.value;
-        /* console.log(nameRegister);
-        console.log(weightRegister);
-        console.log(heightRegister);
-        console.log(descriptionRegister);
-        console.log(categoryRegister);
-        console.log(quantityRegister);
-        console.log(priceRegister);
-        console.log(routImageRegister);
-        console.log(this.verifyPromo); */
-
-        //Fazer verificações
         const nameFormat = /^(?![ ])(?!.*[ ]{2})((?:e|da|do|das|dos|de|d'|D'|la|las|el|los)\s*?|(?:[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð'][^\s]*\s*?)(?!.*[ ]$))+$/;
         const weightFormat = /^[+]?(\d{1,5}\.{1}\d{3})/;
         const heightFormat = /^[+]?(\d{1,2}\.{1}\d{2})/;

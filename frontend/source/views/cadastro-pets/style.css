@@ -59,8 +59,8 @@ header {
     border-bottom: 1px solid var(--border-header);
     display: flex;
     align-items: center;
-    justify-content: start;
-    padding-left: 80px;
+    justify-content: space-between;
+    padding: 0 32px;
     position: fixed;
     top: 0;
 }
@@ -114,15 +114,6 @@ footer {
     width: 50%;
     gap: 20px;
 }
-
-/* a {
-    text-decoration: none;
-    color: var(--a-tag-color);
-}
-
-a:hover {
-    color: rgb(147, 147, 147);
-} */
 
 input {
     width: 100%;

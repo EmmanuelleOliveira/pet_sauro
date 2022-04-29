@@ -2,7 +2,7 @@ const express = require('express');
 const {getClient} = require('../utils/client_pg');
 const authorization = require('../middlewares/authorization_users.js');
 const router = express.Router();
-//http://localhost:3333
+
 router.get('/', authorization, async (req, res) => {
     const client = await getClient();
     const users = await client.query('SELECT users.username, users.password FROM public.users');

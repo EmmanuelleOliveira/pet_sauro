@@ -2,18 +2,16 @@ const express = require('express');
 const { getClient } = require('../utils/client_pg');
 const authorization = require('../middlewares/authorization_users');
 const router = express.Router();
-//http://localhost:3333
+
 router.get('/', async (req, res) => {
     console.log("Chegou na rota de pets")
     const client = await getClient();
     const users = await client.query('SELECT * FROM public.pets');
     await client.end();
-    console.log(users.rows)
     res.json(users.rows);
 });
 
 router.post('/', authorization, async (req, res) => {
-    console.log("Entrou na rota de cadastro de pets");
     const client = await getClient();
     const verifyPet = await client.query('SELECT pets.name FROM public.pets WHERE name = $1', [req.body.name]);
     if (verifyPet.rows.length === 0) {
