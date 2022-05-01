@@ -7,10 +7,11 @@ declareController(class {
     // se data não for undefined ({.name .admin}), mudar o header
     this.checkCar();
 
+//Carrossel 
+
     let slideIndex = 0;
 
     const showSlides = () => {
-      console.log("atualizando carrossel");
       let i;
       let slides = document.getElementsByClassName("mySlides");
       for (i = 0; i < slides.length; i++) {
@@ -23,6 +24,8 @@ declareController(class {
     }
 
     showSlides();
+
+    //Requisição dos pets ao entrar na página
 
     this.url = "http://localhost:8000";
 
@@ -43,8 +46,7 @@ declareController(class {
             document.getElementById("incorrect-data").innerHTML = `${data}`;
           });
         }
-        response.json().then(function (data) { //colocar no console que o cliente tá logado
-          console.log("Chegou aqui - 38")
+        response.json().then(function (data) { 
           renderCards(data);
         });
       })
@@ -52,7 +54,7 @@ declareController(class {
         console.log("Verificar ERRO:" + err);
       });
 
-    function renderCardItem(pet, container) {
+    function renderCardItem(pet, container) { //Monta os cards com cada pet e o verifica a categoria e o preço (promoção ou não)
       const {
         name, weight,
         price, height,
@@ -99,7 +101,7 @@ declareController(class {
       }
     }
 
-    function renderCards(pets) {
+    function renderCards(pets) { 
       const container = document.querySelector("#products");
       for (let i = 0; i < pets.length; i++) {
         renderCardItem(pets[i], container);
@@ -156,11 +158,11 @@ declareController(class {
     sendData({ petId, petName, petPrice, petDescription, petWeight, petHeight })
   }
 
-  cancelPet() {
+  cancelPet() { 
     this.modal.style.display = "none";
   }
 
-  addPet() {
+  addPet() { //Adiciona o pet ao carrinho
     const pricePet = Number(this.priceHidden.value);
     const quantityPet = this.modalQuantity.value;
     const petId = Number(this.petIdHidden.value);
@@ -183,7 +185,7 @@ declareController(class {
     }
   }
 
-  checkCar() {
+  checkCar() { //Coloca a quantidade de itens no carrinho
     const shoppingCart = this.getCar();
     if (shoppingCart.length === 0) {
       document.getElementById("number-itens").innerHTML = "";
@@ -194,21 +196,21 @@ declareController(class {
   }
 
 
-  getCar() {
+  getCar() { //Verifica se o car que tem no localStorage tem elementos ou não
     const car = localStorage.getItem('car') ? JSON.parse(localStorage.getItem('car')) : [];
     return car;
   }
 
-  setCar(car) {
+  setCar(car) { //Envia para o localStorage as informações dos produtos na chave car
     localStorage.setItem("car", JSON.stringify(car));
   }
 
-  clearCar(item) {
+  clearCar(item) { //Limpa os produtos do carrinho do localStorage
     console.log(item)
     localStorage.removeItem("car");
   }
 
-  fillTable() {
+  fillTable() { //Preenche a tabela do modal carrinho
     this.clearTable();
     const car = this.getCar();
     let total = 0;
@@ -235,7 +237,7 @@ declareController(class {
     document.getElementById("total").innerHTML = `Total da compra: R$ ${total}`;
   }
 
-  removeItemCar(index) {
+  removeItemCar(index) {//Remove o item do carrinho
     const car = this.getCar();
     car.splice(index, 1);
     this.setCar(car);
@@ -265,7 +267,7 @@ declareController(class {
     return value;
   }
 
-  totalItens(itens){
+  totalItens(itens) {
     let quantityItens = 0;
     for (let i = 0; i < itens.length; i++) {
       quantityItens += Number(itens[i].quantity);
@@ -361,7 +363,7 @@ declareController(class {
 
   }
 
-  backNavigate(){
+  backNavigate() {
     document.getElementById("modal-buy-finished").style.display = "none";
   }
 

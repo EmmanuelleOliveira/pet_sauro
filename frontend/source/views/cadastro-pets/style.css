@@ -214,11 +214,18 @@ table {
     border-collapse: collapse;
 }
 
-table#sales-log-table td {
+table #sales-log-table td {
     border-bottom: 1px solid #f24783;
 }
 
 #sales-log-table {
     margin-top: 20px;
     display: none;
+}
+
+#header-admin-controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
